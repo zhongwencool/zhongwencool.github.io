@@ -1,0 +1,9 @@
+_config.yml
+db.json
+debug.log
+node_modules
+package.json
+public
+scaffolds
+themes
+.deploy_git

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="yes">
+
+<title>邓忠文 | Erlang&amp;amp;Elixir</title>
+<style type="text/css">
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+audio:not([controls]) {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:hover,
+a:active {
+  outline: 0;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+b,
+strong {
+  font-weight: bold;
+}
+blockquote {
+  margin: 1em 40px;
+}
+dfn {
+  font-style: italic;
+}
+mark {
+  background: #ff0;
+  color: #000;
+}
+p,
+pre {
+  margin: 1em 0;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+q {
+  quotes: none;
+}
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+small {
+  font-size: 75%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0;
+}
+dd {
+  margin: 0 0 0 40px;
+}
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px;
+}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+figure {
+  margin: 0;
+}
+form {
+  margin: 0;
+}
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
+  *margin-left: -7px;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible;
+}
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body.pdf {
+  color: black;
+}
+body.pdf a {
+  text-decoration: none;
+  color: black;
+}
+body.pdf .container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+  border: none;
+  border-width: 8px 0 2px 0;
+  text-align: left;
+}
+body.pdf .resume {
+  position: relative;
+  padding: 40px 80px;
+}
+body.pdf a[href$='.pdf'] {
+  display: none;
+}
+body.pdf h1 {
+  letter-spacing: 0;
+  margin-top: 0;
+  font-size: 48px;
+  text-transform: none;
+}
+body.pdf h2 {
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+body.pdf h3 {
+  float: left;
+  width: 16%;
+  font-style: normal;
+}
+body.pdf h3+p {
+  float: left;
+  width: 84%;
+}
+body.pdf blockquote {
+  top: 40px;
+  right: 50px;
+  position: absolute;
+}
+body.pdf ul li {
+  width: 28%;
+  float: left;
+}
+body.pdf ul dl {
+  margin: 0;
+  padding: 0.3em 0 0;
+}
+body.pdf ul dl dt {
+  font-size: 122%;
+  font-weight: normal;
+  margin: 0 0 .75em;
+}
+body.pdf ul dl dd {
+  padding: 0 4em 0 0;
+}
+body.pdf ol {
+  float: left;
+  width: 84%;
+  margin: .7em 0 0;
+}
+body.pdf ol li {
+  width: 33%;
+  margin: 0;
+}
+body.pdf ol li:nth-child(3n) {
+  width: 34%;
+}
+body.pdf ol li:nth-child(1),
+body.pdf ol li:nth-child(2),
+body.pdf ol li:nth-child(3) {
+  border-top: none;
+}
+body.pdf dl {
+  margin: .7em 0 0;
+  page-break-inside: avoid !important;
+  display: block;
+}
+body.pdf dl strong {
+  float: right;
+  margin-top: -2em;
+}
+body.pdf dl em {
+  font-size: 130%;
+  font-style: normal;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+body {
+  font-family: 'Helvetica Neue', 'Helvetica', Arial, serif;
+  color: #444;
+}
+h1,
+h2,
+h3,
+h4,
+ul dl dt {
+  font-family: 'Helvetica Neue Light', 'Helvetica', Arial, serif;
+}
+h1:before {
+  content: "+";
+  font-weight: bold;
+  color: orange;
+  margin: -1em 0 0 -0.5em;
+  position: relative;
+  top: -0.4em;
+}
+.container {
+  margin: 0 auto;
+  padding: 0;
+  background: whiteSmoke;
+  border: solid #666;
+  border-width: 8px 0 2px 0;
+  text-align: left;
+}
+.resume {
+  position: relative;
+  padding: 10px 20px;
+}
+a {
+  color: #990003;
+}
+a[href$='.pdf'] {
+  display: inline-block;
+  background: #666;
+  color: white;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  text-decoration: none;
+}
+blockquote {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4em;
+}
+hr {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 18px auto;
+  width: 100%;
+  clear: both;
+  border: none;
+  border-top: 1px solid #CCC;
+  font-size: 1px;
+  line-height: 0;
+  overflow: visible;
+  page-break-after: avoid;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+h3 {
+  margin: 0;
+  padding: 0 0 .5em;
+  font-size: 150%;
+  font-weight: bold;
+}
+h3+p {
+  margin: 0 0 16px;
+  padding: 0;
+  display: block;
+  font-size: 104%;
+  line-height: 24px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+}
+ul dl {
+  margin: .3em 0 0;
+  padding: 0;
+  width: 100%;
+}
+ul dl dt {
+  font-size: 100%;
+}
+ul dl dd {
+  margin: 0 0 1em;
+  padding: 0 2em 0 0;
+  font-size: .8em;
+  line-height: 1.5em;
+}
+ol {
+  margin: 0;
+  padding: 0 0 .75em;
+  width: 84%;
+  display: inline-block;
+}
+ol li {
+  margin: 0 0 0 1em;
+  padding: 0;
+  border-top: 1px solid #CCCCCC;
+  width: 100%;
+  float: left;
+  list-style: none;
+  line-height: 24px;
+  font-size: 14px;
+}
+ol li:nth-child(1) {
+  border-top: none;
+}
+dl {
+  float: left;
+  display: block;
+  width: 75%;
+  margin: 0;
+  padding: 0;
+}
+dl dt {
+  margin: 0;
+  padding: 0;
+  font-size: 140%;
+}
+dl dd {
+  margin: 0 0 1.5em;
+  padding: 0;
+  font-size: 80%;
+  line-height: 1.4em;
+}
+dl strong {
+  display: block;
+}
+dl em {
+  display: block;
+  font-size: 110%;
+  margin: .15em 0 .5em;
+  font-style: bold;
+}
+dl dd li {
+  width: 100%;
+  margin: 0 1em 1em;
+  list-style-type: square;
+}
+dl dt {
+  display: block;
+  clear: both;
+}
+dl dt {
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
+h3 + dl dt:first-child {
+  border: 0;
+  padding-top: 0;
+}
+dl dd p:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+ul li dt {
+  border: 0;
+  padding-top: 0;
+}
+#footer {
+  display: none;
+}
+#footer + p {
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+}
+
+@media screen and (min-width: 37.5em) {
+  body {
+    padding: 2em 0;
+  }
+  blockquote {
+    top: 10px;
+    right: 50px;
+    position: absolute;
+  }
+  h1 {
+    margin-top: .5em;
+  }
+  ol {
+    margin: 0 0 0 1em;
+  }
+  ol li {
+    width: 50%;
+    margin: 0;
+  }
+  ol li:nth-child(1),
+  ol li:nth-child(2) {
+    border-top: none;
+  }
+}
+@media screen and (min-width: 57em) {
+  .container {
+    width: 912px;
+  }
+  .resume {
+    position: relative;
+    padding: 40px 50px;
+  }
+  blockquote {
+    top: 40px;
+    right: 50px;
+    position: absolute;
+  }
+  h1 {
+    margin-top: 0;
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  h3 {
+    float: left;
+    width: 16%;
+  }
+  h3+p {
+    float: left;
+    width: 84%;
+  }
+  ul li {
+    width: 28%;
+    float: left;
+  }
+  ul dl dt {
+    font-size: 122%;
+    font-weight: normal;
+    margin-bottom: .75em;
+  }
+  ul dl dd {
+    padding: 0 4em 0 0;
+  }
+  ol {
+    float: left;
+    width: 84%;
+    margin: .6em 0 0;
+  }
+  ol li {
+    width: 33%;
+    margin: 0;
+  }
+  ol li:nth-child(3n) {
+    width: 34%;
+  }
+  ol li:nth-child(1),
+  ol li:nth-child(2),
+  ol li:nth-child(3) {
+    border-top: none;
+  }
+  dl strong {
+    float: right;
+    margin-top: -2em;
+  }
+  dl em {
+    font-size: 130%;
+    font-style: normal;
+  }
+}
+
+</style>
+</head>
+
+<body class="">
+
+<div class="container">
+    <div class="resume">
+        <h1>邓忠文</h1>
+
+<h2>Erlang&amp;Elixir</h2>
+
+<blockquote>
+  <p>邮  箱：738819904@qq.com<br>
+  手  机：18682246523<br>
+  Github：<a href="https://github.com/zhongwencool">zhongwencool</a><br></p>
+</blockquote>
+
+<hr />
+
+<h3 id="profile">简介</h3>
+
+<ol>
+<li>熟练使用Erlang/OTP(四年)开发。<br><a href="http://zhongwencool.github.io/erlang_skill">我的Erlang技能表</a> </li>
+<li>熟练使用Elixir(一年)开发。<br><a href="http://www.cnblogs.com/zhongwencool/">我的Blog</a></li>
+<li>喜欢记录，晨间日记实践。<br><a href="http://www.zhihu.com/question/20232993/answer/34270710">我的笔记结构和原则</a></li>
+</ol>
+
+<hr />
+
+<h3 id="profile">技能</h3>
+
+<ol>
+<li><p><strong>Erlang/OTP</strong><br>
+开发过2个大型ARPG游戏项目<br>
+善于定位各种性能问题<br>
+喜欢且造过多个实用轮子<br>
+持续关注Erlang社区发展<br></p></li>
+<li><p><strong>Elixir</strong><br>
+使用Phoenix开发过大型web产品<br>
+参与<a href="https://github.com/akira/exq">exq</a>，<a href="https://github.com/tsharju/memcache_client">memcache_client</a>多个<br>开源项目的开发<br>
+维护<a href="http://elixir-news.github.io/">Elixir-New</a>网站列表。<br></p></li>
+<li><p><strong>Database</strong><br>
+熟练使用Redis，开发过Redis cluster的wrapper <a href="https://github.com/zhongwencool/redix-cluster">redix_cluster</a><br>
+能够使用MySQL数据库进行应用开发<br>
+了解Memcached<br></p></li>
+</ol>
+
+<hr />
+
+<h3 id="technical">技术</h3>
+
+<ol>
+<li>Erlang/OTP</li>
+<li>Redis</li>
+<li>Git/Svn</li>
+<li>Elixir</li>
+<li>Memcached</li>
+<li>OS X/Linux</li>
+<li>MySQL</li>
+<li>Spacemacs</li>
+<li>JQuery</li>
+</ol>
+
+<hr />
+
+<h3 id="degree">学历</h3>
+
+<dl>
+<dt>武汉理工大学</dt>
+<dd><em>全日制本科/自动化专业</em>
+<strong>2006.09-2010.07</strong></dd>
+</dl>
+
+<hr />
+
+<h3 id="experience">个人项目</h3>
+
+<dl>
+<dt>observer_cli</dt>
+<dd><strong>2015.11-2016.01</strong>
+<a href="https://github.com/zhongwencool/observer_cli">项目地址</a><br>
+1. 在Erlang Shell中查看节点的性能指标<a href="http://zhongwencool.github.io/observer_cli/">Demo地址</a>。 <br>
+2. 功能强大，简单方便。<br>
+3. 可以在生产环境中安全使用。<br></dd>
+
+<dt>erlang_in_anger</dt>
+<dd><strong>2015.11-2016.01</strong>
+<a href="https://github.com/zhongwencool/erlang_in_anger">项目地址</a><br>
+利用业余时间独立完成<a href="https://www.erlang-in-anger.com/">erlang in anger</a>翻译，掌握根据Erlang运行时状态分析处理异常，养成凡事先看英文资料和源码的习惯。</dd>
+
+<dt>maxwell</dt>
+<dd><strong>2016.05-2016.06</strong>
+<a href="https://github.com/zhongwencool/maxwell">项目地址</a><br>
+第一个Elixir项目，可以在hackney, ibrowse间无缝切换的http Client, 把Http请求的各个部分都独立成middleware，让使用者可以自由组合，灵活易用。比<a href="https://github.com/edgurgel/httpoison">httpoison</a>和<a href="https://github.com/myfreeweb/httpotion">httpotion</a>更加简洁好用。</dd>
+
+<dt>recon_web</dt>
+<dd><strong>2015.06-2015.07</strong>
+<a href="https://github.com/zhongwencool/recon_web">项目地址</a><br>
+利用<a href="https://github.com/ninenines/cowboy">cowboy(websocket)</a> <a href="https://github.com/ferd/recon">recon</a> 查看Erlang节点各项指标的web工具, 前端使用<a href="https://github.com/socketio/socket.io-client">socket.io.client</a>通讯，<a href="http://www.highcharts.com/">hightchat</a>绘制图表。原理图详见readme。嚢括了如何使用cowboy构建高可用websocket server的所有细节。</dd>
+
+<dt>mipush</dt>
+<dd><strong>2015.06-2015.07</strong>
+<a href="https://github.com/zhongwencool/mipush">项目地址</a><br>
+完整支持<a href="http://dev.xiaomi.com/doc/p=533/index.html">小米推送</a>的Erlang ServerSDK实现。消息发送全异步操作，隔离消息服务与其它业务。项目结构见readme。<br></dd>
+</dl>
+
+<hr />
+
+<h3 id="experience">工作经历</h3>
+
+<dl>
+<dt>深圳耳语科技有限公司</dt>
+<dd><em>高级Erlang工程师</em>
+<strong>2015.06-2016.06</strong>
+1. 维护耳语日常需求开发，重写推送服务。<br>
+2. 使用Elixir(Phoenix+Maru)开发新Web项目全能墙。<br>
+3. 负责Job Queue(<a href="https://github.com/akira/exq/">Exq</a>)把Exq的backend client从eredis换成redix<a href="https://github.com/akira/exq/pull/136">Change eredis to redix</a>,<br>
+ &emsp;重写了Exq的结构框架<a href="https://github.com/akira/exq/pull/158">refactor supervisor structure</a>。<br>
+4. 负责Memcached Cache的设计，使用connection重写了memcache_client的重连机制<a href="https://github.com/tsharju/memcache_client/pull/1">support reconnect</a>。<br>
+5. 负责第三方Http Client API设计，自己造了一个非常好用的Http Client: <a href="https://github.com/zhongwencool/maxwell">maxwell</a>。<br></dd>
+
+<dt>北京瑞友科技股份有限公司上海分公司</dt>
+<dd><em>Erlang工程师</em>
+人事外派方式至上海爱立信SBG(Session Border Controller)。 <strong>2014.04-2015.05</strong> <br>
+1. 培训SIP，H248协议通信知识，Erlang的编程规范，Erlang tarce，agile工作流程(2014.04-2014.06)。<br>
+2. Early media forking feature 为了让电话在<a href="http://www.3cx.com/pbx/sip-forking/">forking</a>中彩铃不中断且尽快响应彩铃。负责根据配置，SIP消息PEM,SDP中a_line 决定媒体流方向,部分test case及后期merge工作(2014.07-2014.12) 。<br>
+3. 修Bug(2015.01~2015.05)。<br><br>
+这一年，虽然对Erlang内部原理及运行机制没有深入了解，但是让我领略到了Erlang快速做应用的魅力:<br>
+1. OTP 做大型项目的优势:95%只需要关注业务逻辑;<br>
+2. 所有code checking必须经过3人以上的codereview，一起逐行的点评，code 比技术交流会更细致有效。<br>
+3. 严格的Unit test，保证了大工程代码的质量。<br>
+4. 从调试只会使用io:format/2转变为使用dbg trace功能，翻译Erlang in anger同时提高分析异常的能力。<br>
+5. 修Bug绝大多数只是一个理解需求的过程,学会邮件有效沟通。<br></dd>
+
+<dt>广州明朝互动科技股份有限公司</dt>
+<dd><em>游戏后台工程师</em>
+<strong>2012.01-2014.03</strong>
+<a href="http://xlfc.mingchao.com/">仙落凡尘</a>: <br>
+1. 使用Erlang开发复杂的需求。<br>
+2. 负责公会的需求开发，物物交换，公会内竞赛等：多进程间交互数据处理相关的功能。<br>
+3. 解决Mnesia性能瓶颈，把所有的Transactions操作改成脏读写，统一由单一玩家进程直接操作Mnesia来解决竞争问题。<br>
+<a href="http://rc.qzone.qq.com/100666811/">六界仙尊</a> <br>
+1. 独立开发大规模模块：成就。原成就会和游戏里面的其它玩法紧密藕合成一团，每新加一个成就就要在不同的地方加很多重复的代码，造成代码冗余度高且逻辑混乱 重写后：把数据都只存角色进程，有且只有一份，简化对外接口(查，删，增)，类OOP写法。<br>
+2. 优化聊天(个人，公会，大厅)及广播系统，增加后台封禁等功能； 公会优化：由原来的每个公会一个进程改为所以公会统一单进程管理，便于公会与公会的交互； 战斗广播卡优化：战斗广播达到一定数据量就屏蔽九宫格内与自己无关的战斗信息。<br>
+3. 协助重构人物技能，怪物AI。优化婚宴，副本，与腾讯开放平台的各种接口对接。<br>
+过二年多锻炼，基本了解网页游戏服务器的架构，理解了ARPG 游戏的需求套路，能熟练使用OTP 进行复杂的需求开发，养成良好的编程习惯。<br></dd>
+
+<dt>东莞生益电子有限公司</dt>
+<dd><em>Layout布线工程师</em>
+<strong>2010.07-2011.12</strong>
+1. 使用OrCAD对PCB的布线进行设计和调整。<br>
+2. 每周提交PCB制造流程报告和缺陷分析及改进报告。<br>
+3. 根据进度和客户进行沟通。<br></dd>
+</dl>
+
+<hr />
+
+<h3 id="footer">Footer</h3>
+
+<p>邓忠文 &#8212; <a href="https://github.com/zhongwencool">Github@zhongwencool</a> &#8212; <a href="http://weibo.com/zhongwencool/">微博@写着写着就懂了</a> &#8212; 手机@18682246523</p>
+
+<hr />
+
+    </div>
+</div>
+
+</body>
+</html>

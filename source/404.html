@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="treestyles.css" type="text/css"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!--This file has been created with toxhtml.xsl--><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><title>Erlang SKill</title><link rel="stylesheet" href="http://zhongwencool.qiniudn.com//treestyles.css" type="text/css" /><script type="text/javascript" src="http://zhongwencool.qiniudn.com//marktree.js"> 
+	</script></head>
+	<body>
+          <script type="text/javascript" src="http://tajs.qq.com/stats?sId=43526741" charset="UTF-8"></script>
+          <!-- add start watch fork button on github-->
+          <iframe src="https://ghbtns.com/github-btn.html?user=zhongwencool&repo=zhongwencool.github.io&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+          <iframe src="https://ghbtns.com/github-btn.html?user=zhongwencool&repo=zhongwencool.github.io&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+          <iframe src="https://ghbtns.com/github-btn.html?user=zhongwencool&repo=zhongwencool.github.io&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+
+	<div class="basetop"><a onclick="expandAll(document.getElementById('base'))" href="#">Expand</a> -
+<a onclick="collapseAll(document.getElementById('base'))" href="#">Collapse</a></div><div class="basetext" id="base"><ul>
+	<li class="col" id="FMID_1309073138FM"><div class="nodecontent" style="font-size:100%;font-weight:bold;">Erlang SKill</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_994203488FM"><div class="nodecontent" style="font-size:100%;">基本语法</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_1361097523FM"><div class="nodecontent" style="font-size:100%;">数据类型</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1317617236FM"><div class="nodecontent" style="font-size:100%;">基本：Integer,Float,Atom,Tuple,List,Binary</div></li>
+	<li class="basic" id="FMID_898076609FM"><div class="nodecontent" style="font-size:100%;">复杂：Record,Map,Pid,Fun,Ref,Port</div></li>
+	<li class="basic" id="FMID_764853762FM"><div class="nodecontent" style="font-size:100%;"><a href="http://pan.baidu.com/s/1vtW4I">基础：Erlang程序设计中文版Joe Armstrong</a> <a href="http://pan.baidu.com/s/1vtW4I"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_230189912FM"><div class="nodecontent" style="font-size:100%;"><a href="http://learnyousomeerlang.com/">基础+进阶：Learn You Some Erlang好玩+全面+实战+RSS订阅更新内容</a> <a href="http://learnyousomeerlang.com/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1412409842FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.cnblogs.com/zhengsyao/p/erlang_eterm_implementation_1.html">高级：Erlang数据类型的表示和实现1~5,虚拟机源码中分析数据类型的实现原理</a> <a href="http://www.cnblogs.com/zhengsyao/p/erlang_eterm_implementation_1.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1790730133FM"><div class="boxed"><div class="nodecontent"><a href="http://erlang.org/doc/apps/erts/erl_ext_dist.html">为什么后端通过binary传给前端时尽量不要使用负数</a> <a href="http://erlang.org/doc/apps/erts/erl_ext_dist.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      Erlang/OTP 17 [erts-6.2] [64-bit] [smp:4:4] [async-threads:10]
+    </p><p /><p>
+      Eshell V6.2  (abort with ^G)
+    </p><p>
+      1&gt; term_to_binary(-1).
+    </p><p>
+      &lt;&lt;131,98,255,255,255,255&gt;&gt;
+    </p><p>
+      2&gt; term_to_binary(1).
+    </p><p>
+      &lt;&lt;131,97,1&gt;&gt;
+    </p><p>
+      虽然前端也可以decode正常，但传输时还是不推荐负数。
+    </p><p>
+      同理float，但17.0后提供默认选项<span class="code">{minor_version, 1}，比之前更高效+省空间。</span></p></span></div></div></li>
+	<li class="basic" id="FMID_274249413FM"><div class="nodecontent">Record的key只能是term,编译时结构就已决定，不能动态增加，所以有了Map,但Map暂时也取代不了Record,因为mnesia目前只支持Record</div></li></ul></li>
+	<li class="col" id="FMID_1493709507FM"><div class="nodecontent" style="font-size:100%;">必要概念</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_1031886526FM"><div class="nodecontent" style="font-size:100%;">变量单一赋值：列出好处(&gt;3）</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1005722284FM"><div class="nodecontent"><p>
+      容易trace问题，在代码错误排查时，最常见是变量赋错值，如果变量在程序中多次赋值，情况就会变复杂;
+    </p></div></li>
+	<li class="basic" id="FMID_1062475915FM"><div class="nodecontent"><p>
+      写Test Case更加容易，没有可变量，只要函数的输入确定，输出也是固定的;有利于自动化
+    </p></div></li>
+	<li class="basic"><div class="nodecontent"><p>
+      禁用state可以让人更容易写出简单的（易读+少错）代码
+    </p></div></li>
+	<li class="basic"><div class="nodecontent"><p>
+      没有共享内存，就不需要在访问时加锁，解锁
+    </p></div></li>
+	<li class="basic" id="FMID_1622998125FM"><div class="nodecontent">单一赋值和不可变对象（Erlang的宏和java 的immutable Object）的区别</div></li></ul></li>
+	<li class="col" id="FMID_140047435FM"><div class="nodecontent" style="font-size:100%;">模式匹配</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_395083582FM"><div class="nodecontent">变量赋值</div></li>
+	<li class="basic" id="FMID_1260232235FM"><div class="nodecontent">自由构造执行流程（选择，循环，递归）</div></li>
+	<li class="basic" id="FMID_189293770FM"><div class="nodecontent">从复合数据类型（常用Record，Map）中提取值</div></li></ul></li>
+	<li class="basic" id="FMID_136092959FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.cnblogs.com/zhongwencool/p/erl_tip.html">保护式中andalso简写逗号，orelse简写分号;但并不完全等价(guard crash action)</a> <a href="http://www.cnblogs.com/zhongwencool/p/erl_tip.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1807895146FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">复杂列表解析用法+语句块：善用列表解析的过滤功能写简洁易懂代码</div><div class="note-and-attributes"><span class="note"><p>
+      明白下面这个的用途： 
+    </p><p>
+       [Num1*100+Num2*10+Num3||Num1&lt;-[1,2,3,4],Num2&lt;-[1,2,3,4],Num3&lt;-[1,2,3,4],Num1=/=Num2,Num1=/=Num3,Num2=/=Num3].
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_795470581FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://zh.wikipedia.org/wiki/%E5%B0%BE%E8%B0%83%E7%94%A8">尾递归特征与好处</a> <a href="http://zh.wikipedia.org/wiki/%E5%B0%BE%E8%B0%83%E7%94%A8"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      最佳实践：生产环境使用标准的gen_*来保证尾递归。
+    </p></span></div></div></li>
+	<li class="col" id="FMID_211021825FM"><div class="nodecontent">Run-time Errors</div>
+		<ul class="subexp">
+	<li class="basic"><div class="nodecontent">
+    function_clause
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    case_clause
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    if_clause
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    badmatch
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    badarg
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    undef
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    badarith
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    badfun
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    badarity
+  </div></li>
+	<li class="basic"><div class="nodecontent">
+    system_limit
+  </div></li></ul></li>
+	<li class="col" id="FMID_1089883371FM"><div class="nodecontent" style="font-size:100%;">Raising Exceptions</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_698940908FM"><div class="nodecontent" style="font-size:100%;">抛出异常 exit throw error</div></li>
+	<li class="basic" id="FMID_1049933518FM"><div class="nodecontent" style="font-size:100%;">捕获异常try....catch...after...end</div></li>
+	<li class="col" id="FMID_1215048777FM"><div class="nodecontent" style="font-size:100%;">为什么推荐使用try...catch替换catch</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1929442553FM"><div class="nodecontent">1.多了三种可catch的类型，默认为throw</div></li>
+	<li class="basic" id="FMID_1950044612FM"><div class="nodecontent">2. 可以加after后加一个清理工作，无论是否异常都会被执行</div></li></ul></li>
+	<li class="col" id="FMID_644381776FM"><div class="nodecontent">erlang:get_stacktrace()</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1404034490FM"><div class="nodecontent">获取本进程内最近出现异常的堆栈跟踪信息</div></li>
+	<li class="basic" id="FMID_398869119FM"><div class="nodecontent">特别注意它是返回最近一次出现的异常，如果没发生过异常就是空列表，所以经常犯错的情况，在一个没有发生异常的地方调用它，想看堆栈信息，结果却得到的是上次异常</div></li>
+	<li class="basic" id="FMID_1171787257FM"><div class="nodecontent"><p>
+      解决上面方法的trick:
+    </p><pre><code>Trace = try throw(test) catch test -&gt; erlang:get_stacktrace() end,
+erlang:display(Trace)</code></pre></div></li>
+	<li class="basic" id="FMID_1935010368FM"><div class="nodecontent"><a href="http://erlang.org/pipermail/erlang-questions/2013-November/075928.html">不要滥用它：制造一个异常是很cheap的，但是在每个异常处使用erlang:get_stacktrace()却非常expensive</a> <a href="http://erlang.org/pipermail/erlang-questions/2013-November/075928.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="basic" id="FMID_762594433FM"><div class="nodecontent"><a href="http://www.cnblogs.com/zhongwencool/p/try_catch.html">使用try..catch避免nest_case的场景</a> <a href="http://www.cnblogs.com/zhongwencool/p/try_catch.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="col" id="FMID_447119609FM"><div class="nodecontent" style="font-size:100%;">二进制</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1133423951FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><p>
+      比特语法:为网络传输而生:<code>&lt;&lt; Length, Value:(Length*8)/integer &gt;&gt; = &lt;&lt; 2, 123:16 &gt;&gt;报错原因</code></p></div><div class="note-and-attributes"><span class="note"><div style="text-align: left; white-space: normal; font-variant: normal; margin-left: 0px; margin-right: 0px; text-indent: 0px; letter-spacing: normal; margin-top: 0px; text-transform: none; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; font-size: 13px; background-color: rgb(254, 254, 242); font-family: Verdana, Arial, Helvetica, sans-serif; padding-right: 0px; margin-bottom: 0px; font-weight: normal; color: rgb(0, 0, 0); font-style: normal; line-height: 19.5px; word-spacing: 0px"><pre><code>1&gt; &lt;&lt; Length, Value:(Length*8)/integer &gt;&gt; = &lt;&lt; 2, 123:16 &gt;&gt;.   
+* 2: illegal bit size
+
+</code><font size="3">报错的原因：默认的integer-unit是8bit,但匹配用的是16，正确写法：</font><code>2&gt; &lt;&lt; Length, Value:Length/integer-unit:8 &gt;&gt; = &lt;&lt; 2, 123:16 &gt;&gt;.
+&lt;&lt;2,0,123&gt;&gt;
+3&gt; Value.</code></pre><font size="2">123</font></div></span></div></div></li>
+	<li class="basic" id="FMID_1475732907FM"><div class="nodecontent" style="font-size:100%;">Heap,Refc,Sub,Bitstring</div></li>
+	<li class="basic" id="FMID_924744448FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.cnblogs.com/zhongwencool/p/erlang_binary.html">Binary的类列表解析</a> <a href="http://www.cnblogs.com/zhongwencool/p/erlang_binary.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      cowboy代码中普遍用到的，Binary处理典范：<b>cowboy</b></p></span></div></div></li>
+	<li class="basic" id="FMID_868411771FM"><div class="nodecontent" style="font-size:100%;">处理binary先看看binary.erl里面的函数，次之BIF，然后再自己造</div></li></ul></li>
+	<li class="col" id="FMID_932514610FM"><div class="nodecontent" style="font-size:100%;">编译相关</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1703817018FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://erlang.org/pipermail/erlang-questions/2001-November/004120.html">makefile基本语法</a> <a href="http://erlang.org/pipermail/erlang-questions/2001-November/004120.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><pre>#######################################################################
+# Generic make script for compiling erlang code                       #
+# The environment variable $ERLHOME has to be set to where erlang/OTP #
+# is installed                                                        #
+# Compiles the code into a ebin dir. relative to the source dir.      #
+# (../ebin)                                                           #
+####################################################################### 
+#Compiles the code into a ebin dir. relative to the source dir. 
+EBIN = ../ebin
+ERL = erl
+GEN = beam
+ERLC_EMULATOR = erl -boot start_clean
+PATH= .:$(ERLHOME)/bin:/bin:/usr/bin:/usr/local/bin
+TARGETS = $(SOURCE:%.erl=$(EBIN)/%.beam)
+
+CODE = $(SOURCE:%.erl=$(EBIN)/%.beam) 
+
+$(EBIN)/%.beam: %.erl
+	$(ERLHOME)/bin/erlc  -W -b beam -o $(EBIN) $(EFLAGS) $(WAIT) $&lt;
+
+all: $(TARGETS)
+  
+clean:
+	\rm -f $(CODE) 
+
+realclean: clean
+	\rm -f \.* *~ *\% #*  *.beam
+#######################################################################
+# Template of for compiling erlang files                              #
+# The environment variable  $TOOLSHOME home has to be set to where    #  
+# the generic make script is installed (erlang).                      #
+#######################################################################
+# code to compile
+SOURCE =dummy1.erl \
+	dummy2.erl
+
+#Where include files are stored ".hrl"
+EFLAGS = -I../include \
+	 -I../dummy1/include
+
+#######################################################################
+# Do not edit below this line                                         #
+#######################################################################
+#Include following generic make script
+include $(TOOLSHOME)/erlang</pre></span></div></div></li>
+	<li class="basic" id="FMID_1571605824FM"><div class="boxed"><div class="nodecontent"><a href="https://github.com/ninenines/erlang.mk">erlang.mk一个改进版makefile,编译和测试更快,可以使用方便使用插件（Dialyzer,Edoc,Relx,Eunit...）</a> <a href="https://github.com/ninenines/erlang.mk"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      特别上手简单，一旦配置好，就几乎全自动化.
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_613419067FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="https://github.com/rebar/rebar/wiki">必须掌握rebar:make it easy to compile and test Erlang applications,prot drivers/executables and release</a> <a href="https://github.com/rebar/rebar/wiki"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      Rebar is a feature rich Erlang <strong>build tool</strong> that makes it easy to compile and test Erlang applications, port drivers/executables and releases.
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1762966431FM"><div class="nodecontent"><a href="http://www.erlang.org/doc/man/escript.html">escript:提供不编译也可以run erlang程序的方式（命令行传参非常方便)</a> <a href="http://www.erlang.org/doc/man/escript.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="col" id="FMID_1515790500FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/man/compile.html#file-1">编译选项</a> <a href="http://www.erlang.org/doc/man/compile.html#file-1"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1173498181FM"><div class="nodecontent"><a href="http://erlang.org/doc/man/beam_lib.html">使用encrypt_debug_info加/解密的具体方法.erlang.crypt文件</a> <a href="http://erlang.org/doc/man/beam_lib.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_531423074FM"><div class="nodecontent">尝试把自定义的小函数编译成inline函数</div></li>
+	<li class="basic" id="FMID_1536256911FM"><div class="nodecontent">ERL_COMPILER_OPTIONS变量的使用</div></li></ul></li>
+	<li class="basic" id="FMID_56500865FM"><div class="nodecontent">cover:compile_directory().可以简单的编译当前目录下的所有beam文件</div></li></ul></li></ul></li>
+	<li class="col" id="FMID_379849270FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">Erlang启动参数</div><div class="note-and-attributes"><span class="note"><p>
+      启动服务器的两种选择：
+    </p><p>
+      1.使用rebar打包Release启动;
+    </p><p>
+      2.直接使用脚本启动Application。
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1584336936FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/man/heart.html"> -heart Cmd 心跳包，如果规定时间内没有收到，就会reboot</a> <a href="http://www.erlang.org/doc/man/heart.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_881609280FM"><div class="nodecontent" style="font-size:100%;">-detached ：没有console,服务器必备</div></li>
+	<li class="basic" id="FMID_734494417FM"><div class="nodecontent" style="font-size:100%;">-hidden： 分布式节点互联时不会主动加入到global_group中</div></li>
+	<li class="basic" id="FMID_1382207405FM"><div class="nodecontent" style="font-size:100%;">-remsh Node：连接到一个远程节点上，并可以操作它（在调试服务器时非常有用）</div></li></ul></li></ul></li>
+	<li class="col" id="FMID_897582536FM"><div class="nodecontent" style="font-size:100%;">编程规范</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1131019279FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.se/doc/programming_rules.shtml">官方编程规范指南,多读几遍</a> <a href="http://www.erlang.se/doc/programming_rules.shtml"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1255469630FM"><div class="nodecontent" style="font-size:100%;">变量名(即使下划线变量)要能表达用途</div></li>
+	<li class="basic" id="FMID_1595299778FM"><div class="nodecontent" style="font-size:100%;">优先使用：function match &gt; case &gt; if</div></li>
+	<li class="basic" id="FMID_146742921FM"><div class="nodecontent">认定一个开源项目(cowboy)，然后模仿它,在github上关注它的commit</div></li>
+	<li class="basic" id="FMID_1829903629FM"><div class="nodecontent">越基础的事越关键，需要越细心 ,「小事」/「简单事」/「基础事」</div></li></ul></li>
+	<li class="col" id="FMID_1420004336FM"><div class="nodecontent" style="font-size:100%;">OTP</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1192627767FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/design_principles/des_princ.html">OTP的设计原则</a> <a href="http://www.erlang.org/doc/design_principles/des_princ.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1868652158FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">代码目录组织结构</div><div class="note-and-attributes"><span class="note"><p><strong>doc </strong> 存放程序文档和配置文件<br /><strong>include</strong>  存放头文件.hrl inc<br /><strong>priv </strong>  存放需要引用的第三方类库deps<br /><strong>src </strong>  源代码文件夹<br /><strong>ebin</strong> 编译的目标文件夹，存放beam文件
+    </p></span></div></div></li>
+	<li class="col" id="FMID_1603012926FM"><div class="nodecontent" style="font-size:100%;">四大behavior</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_428801893FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://learnyousomeerlang.com/clients-and-servers#callback-to-the-future">gen_server:A behaviour module for implementing the server of a client-server relation.</a> <a href="http://learnyousomeerlang.com/clients-and-servers#callback-to-the-future"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><pre>gen_server module            Callback module
+-----------------            ---------------
+gen_server:start_link -----&gt; Module:init/1
+
+gen_server:call
+gen_server:multi_call -----&gt; Module:handle_call/3
+
+gen_server:cast
+gen_server:abcast     -----&gt; Module:handle_cast/2
+
+-                     -----&gt; Module:handle_info/2
+
+-                     -----&gt; Module:terminate/2
+
+-                     -----&gt; Module:code_change/3    </pre></span></div></div></li>
+	<li class="basic" id="FMID_1654175124FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://learnyousomeerlang.com/finite-state-machines">gen_fsm:finite-state machine:大部分情况下都使用gen_server自己代替</a> <a href="http://learnyousomeerlang.com/finite-state-machines"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><pre>gen_fsm module                    Callback module
+--------------                    ---------------
+gen_fsm:start_link                -----&gt; Module:init/1
+
+gen_fsm:send_event                -----&gt; Module:StateName/2
+
+gen_fsm:send_all_state_event      -----&gt; Module:handle_event/3
+
+gen_fsm:sync_send_event           -----&gt; Module:StateName/3
+
+gen_fsm:sync_send_all_state_event -----&gt; Module:handle_sync_event/4
+
+-                                 -----&gt; Module:handle_info/3
+
+-                                 -----&gt; Module:terminate/3
+
+-                                 -----&gt; Module:code_change/4</pre></span></div></div></li>
+	<li class="basic" id="FMID_1213919371FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://learnyousomeerlang.com/event-handlers#handle-this">gen_event::Event Handlers</a> <a href="http://learnyousomeerlang.com/event-handlers#handle-this"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><pre>gen_event module                   Callback module
+----------------                   ---------------
+gen_event:start_link       -----&gt;  -
+
+gen_event:add_handler
+gen_event:add_sup_handler  -----&gt;  Module:init/1
+
+gen_event:notify
+gen_event:sync_notify      -----&gt;  Module:handle_event/2
+
+gen_event:call             -----&gt;  Module:handle_call/2
+
+-                          -----&gt;  Module:handle_info/2
+
+gen_event:delete_handler   -----&gt;  Module:terminate/2
+
+gen_event:swap_handler
+gen_event:swap_sup_handler -----&gt;  Module1:terminate/2
+                                   Module2:init/1
+
+gen_event:which_handlers   -----&gt;  -
+
+gen_event:stop             -----&gt;  Module:terminate/2
+
+-                          -----&gt;  Module:code_change/3</pre></span></div></div></li>
+	<li class="basic" id="FMID_79163284FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">supervisor: support "Let it crash"</div><div class="note-and-attributes"><span class="note"><ul><li><p>
+          one_for_one
+        </p></li><li>
+        one_for_all
+      </li><li>
+        rest_for_one
+      </li><li><p>
+          simple_one_for_one
+        </p></li></ul></span></div></div></li></ul></li></ul></li>
+	<li class="col" id="FMID_1976081177FM"><div class="nodecontent" style="font-size:100%;">ETS,DETS</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1888211174FM"><div class="nodecontent" style="font-size:100%;">同时读写删问题</div></li>
+	<li class="basic" id="FMID_1483295460FM"><div class="nodecontent" style="font-size:100%;">那些函数是生产环境不推荐使用的及原因tab2list/tab2file</div></li>
+	<li class="col" id="FMID_153930691FM"><div class="nodecontent" style="font-size:100%;">遍历表的方法</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_282349122FM"><div class="nodecontent">first/next/prev</div></li>
+	<li class="basic" id="FMID_586358586FM"><div class="nodecontent">foldl(Function,Acc0,Tab)</div></li></ul></li>
+	<li class="basic" id="FMID_1418917474FM"><div class="nodecontent" style="font-size:100%;">模式匹配获取/删除对象 select/fun2ms</div></li></ul></li>
+	<li class="col" id="FMID_1849391978FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/man/mnesia.html">Mnesia数据库</a> <a href="http://www.erlang.org/doc/man/mnesia.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      ToDo:薄弱环节
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1672561679FM"><div class="nodecontent" style="font-size:100%;">新建模式，表的类型</div></li>
+	<li class="basic" id="FMID_349538266FM"><div class="nodecontent" style="font-size:100%;">增删查改（transaction,Dirty）</div></li>
+	<li class="basic" id="FMID_1000674807FM"><div class="nodecontent">修改系统环境变量对mneisa的限制</div></li>
+	<li class="basic" id="FMID_536278810FM"><div class="nodecontent" style="font-size:100%;">备份</div></li>
+	<li class="basic" id="FMID_1093769138FM"><div class="nodecontent"><a href="http://www.erlang.org/faq/mnesia.html">Mnesia适应的场景FAQ</a> <a href="http://www.erlang.org/faq/mnesia.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="col" id="FMID_1257378923FM"><div class="nodecontent" style="font-size:100%;">目前遇到的应用场景：</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_711927162FM"><div class="nodecontent" style="font-size:100%;">跨节点定时dump数据（上层先使用ets缓存）</div></li>
+	<li class="basic" id="FMID_1926539673FM"><div class="nodecontent" style="font-size:100%;">单一进程写删操作，可让其它进程查</div></li>
+	<li class="basic" id="FMID_708499666FM"><div class="nodecontent" style="font-size:100%;">遍历+更新数据时的事务操作</div></li></ul></li></ul></li>
+	<li class="col" id="FMID_1338814531FM"><div class="nodecontent" style="font-size:100%;">文件操作</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1569069259FM"><div class="nodecontent" style="font-size:100%;">file:读取大文件时不要使用file:consult/1</div></li>
+	<li class="basic" id="FMID_183478854FM"><div class="nodecontent" style="font-size:100%;">filename 专门操作文件名及路径</div></li>
+	<li class="basic" id="FMID_538353684FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">filelib：主要用于搜索文件时的正则匹配</div><div class="note-and-attributes"><span class="note"><pre>filelib:wildcard("lib/*/{src,include}/*.{erl,hrl}")     </pre><p>
+      To find all .erl or .hrl files in either src or include  directories, use:
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_49380477FM"><div class="nodecontent" style="font-size:100%;">搜索目录文件小程序</div></li></ul></li>
+	<li class="col" id="FMID_1714794965FM"><div class="nodecontent" style="font-size:100%;">文档Edoc</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1968525134FM"><div class="nodecontent" style="font-size:100%;">Dialyzer检查返回值</div></li>
+	<li class="basic" id="FMID_1911552334FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/apps/edoc/chapter.html">理解[type,spec]格式</a> <a href="http://www.erlang.org/doc/apps/edoc/chapter.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p /><p>
+      -type version() :: 'HTTP/1.0' | 'HTTP/1.1'.
+    </p><p>
+      -type status() :: 100..999.
+    </p><p>
+      -type headers() :: [{binary(), iodata()}].
+    </p><p>
+      -spec parse_status_line(binary()) -&gt; {version(), status(), headers(), binary()}.
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_269033515FM"><div class="nodecontent" style="font-size:100%;">Log相关</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1305932118FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/man/error_logger.html">Error Logger是gen_event使用的典范</a> <a href="http://www.erlang.org/doc/man/error_logger.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1912085801FM"><div class="nodecontent" style="font-size:100%;">解读crashdump格式：crashdump_viewer:start().</div></li>
+	<li class="basic" id="FMID_288542008FM"><div class="nodecontent" style="font-size:100%;"><a href="https://github.com/basho/lager">Lager</a> <a href="https://github.com/basho/lager"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="col" id="FMID_1672044442FM"><div class="nodecontent" style="font-size:100%;">调试技巧</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1486115785FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/reference_manual/macros.html">编译时开启或关闭trace宏</a> <a href="http://www.erlang.org/doc/reference_manual/macros.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><pre>-module(m).
+...</pre><font color="#000000">-ifdef(debug). -define(LOG(X), </font><font color="#008080">io:</font>format(<font color="#800000">"{~p,~p}: ~p~n"</font><font color="#000000">, [?MODULE,?LINE,X])). -else. -define(LOG(X), true). -endif.</font><p>
+      -----------------------
+    </p><pre>% erlc -Ddebug m.erl
+
+or
+
+1&gt; c(m, {d, debug}).
+{ok,m}</pre></span></div></div></li>
+	<li class="col" id="FMID_1358549447FM"><div class="nodecontent" style="font-size:100%;">shell技巧</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1079313903FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.cnblogs.com/zhongwencool/p/erlang_shell.html">.erlang ,use_default.erl的自定义shell行为</a> <a href="http://www.cnblogs.com/zhongwencool/p/erlang_shell.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_853929244FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/man/c.html">掌握c.erl的函数</a> <a href="http://www.erlang.org/doc/man/c.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      nl(Module) -&gt; abcast | error
+    </p><p /><p>
+      regs() -&gt; ok<br /><a name="nregs-0" />nregs() -&gt; ok<br /></p><div class="REFBODY"><p>
+        regs/0 displays information about all registered processes. nregs/0  does the same, but for all nodes in the network.
+      </p></div><p /><p>
+      q() -&gt; no_return()
+    </p><div class="REFBODY"><p>
+        This function is shorthand for init:stop(), that is, it causes the node to stop in a controlled fashion.
+      </p><p /><p>
+        bt(Pid) -&gt; ok | undefined<br /></p><div class="REFBODY"><p>
+          Types:
+        </p><div class="REFTYPES">
+          Pid = pid()
+        </div></div><div class="REFBODY"><p>
+          Stack backtrace for a process. Equivalent to erlang:process_display(Pid, backtrace).
+        </p></div><p /></div></span></div></div></li>
+	<li class="basic" id="FMID_275283020FM"><div class="nodecontent" style="font-size:100%;">Ctrl+G操作远程节点利器，但更喜欢用-remsh</div></li>
+	<li class="basic" id="FMID_1143768432FM"><div class="nodecontent" style="font-size:100%;">observer:start/0</div></li>
+	<li class="col" id="FMID_1055133923FM"><div class="nodecontent">extending-the-erlang-shell</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_919680745FM"><div class="nodecontent"><a href="http://ulf.wiger.net/weblog/2007/11/20/extending-the-erlang-shell-part-1/">Part1</a> <a href="http://ulf.wiger.net/weblog/2007/11/20/extending-the-erlang-shell-part-1/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_973569557FM"><div class="nodecontent"><a href="http://ulf.wiger.net/weblog/2007/11/21/extending-the-erlang-shell-part-2/">Part2</a> <a href="http://ulf.wiger.net/weblog/2007/11/21/extending-the-erlang-shell-part-2/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li></ul></li>
+	<li class="basic" id="FMID_16727883FM"><div class="nodecontent" style="font-size:100%;">io:format的参数IoDevice:user通过这个可以理解shell的input output</div></li>
+	<li class="basic" id="FMID_1798292618FM"><div class="nodecontent" style="font-size:100%;">erlang:trace/3</div></li>
+	<li class="basic" id="FMID_201130015FM"><div class="nodecontent" style="font-size:100%;">dbg模块简化了BIF的接口函数</div></li>
+	<li class="basic" id="FMID_699251040FM"><div class="nodecontent" style="font-size:100%;">erlang:get_stacktrace/0</div></li>
+	<li class="basic" id="FMID_833991486FM"><div class="nodecontent" style="font-size:100%;">webtool:start/1</div></li>
+	<li class="basic" id="FMID_1965645245FM"><div class="nodecontent" style="font-size:100%;">Dialyzer</div></li>
+	<li class="col" id="FMID_1835979576FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">分析评估工具</div><div class="note-and-attributes"><span class="note"><p>
+      ToDo
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1285841423FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/man/cover.html">cover代码覆盖</a> <a href="http://www.erlang.org/doc/man/cover.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      ToDo
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1056685429FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.cnblogs.com/zhongwencool/p/erlang_cprof_fprof.html">cprof,eprof,eprof性能评估</a> <a href="http://www.cnblogs.com/zhongwencool/p/erlang_cprof_fprof.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1688350398FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">xref生成交叉引用</div><div class="note-and-attributes"><span class="note"><p>
+      Todo
+    </p></span></div></div></li></ul></li></ul></li>
+	<li class="col" id="FMID_1145283578FM"><div class="nodecontent" style="font-size:100%;">测试工具（rebar,erlang.mk支持）</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1768337333FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/apps/eunit/chapter.html">Eunit:自带的轻量级测试框架，易用，扩展性强</a> <a href="http://www.erlang.org/doc/apps/eunit/chapter.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p>
+      请尝试给一个gen_server加上Eunit: http://www.cnblogs.com/zhongwencool/p/3729046.html
+    </p></span></div></div></li>
+	<li class="basic" id="FMID_1716814451FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/doc/apps/common_test/basics_chapter.html">Common Test framework：基于OTP Test Server的一个非常大又全的框架</a> <a href="http://www.erlang.org/doc/apps/common_test/basics_chapter.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div><div class="note-and-attributes"><span class="note"><p /><p>
+      一个大坑，还没怎么看过.
+    </p></span></div></div></li></ul></li>
+	<li class="col" id="FMID_1017335594FM"><div class="nodecontent" style="font-size:100%;">Socket编程</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_1142372436FM"><div class="boxed"><div class="nodecontent" style="font-size:100%;">gen_tcp</div><div class="note-and-attributes"><span class="note"><p><font color="rgb(0, 0, 0)" face="Verdana, Arial, Helvetica, sans-serif" size="medium">The</font><font face="Verdana, Arial, Helvetica, sans-serif" color="rgb(0, 0, 0)"> </font><font color="rgb(0, 0, 0)" face="Courier, monospace" size="medium">gen_tcp</font><font face="Verdana, Arial, Helvetica, sans-serif" color="rgb(0, 0, 0)"> </font><font color="rgb(0, 0, 0)" face="Verdana, Arial, Helvetica, sans-serif" size="medium">module provides functions for communicating with sockets using the TCP/IP protocol. </font></p><pre style="font-weight: normal; text-indent: 0px; color: rgb(0, 0, 0); font-variant: normal; word-spacing: 0px; text-align: start; text-transform: none; font-style: normal; font-size: medium; letter-spacing: normal; font-family: Courier, monospace; line-height: normal">client() -&gt;
+    SomeHostInNet = "localhost", % to make it runnable on one machine
+    {ok, Sock} = gen_tcp:connect(SomeHostInNet, 5678, 
+                                 [binary, {packet, 0}]),
+    ok = gen_tcp:send(Sock, "Some Data"),
+    ok = gen_tcp:close(Sock).
+%%------------------------------------------------
+
+    </pre><pre style="font-weight: normal; text-indent: 0px; color: rgb(0, 0, 0); font-variant: normal; word-spacing: 0px; text-align: start; text-transform: none; font-style: normal; font-size: medium; letter-spacing: normal; font-family: Courier, monospace; line-height: normal">server() -&gt;
+    {ok, LSock} = gen_tcp:listen(5678, [binary, {packet, 0}, 
+                                        {active, false}]),
+    {ok, Sock} = gen_tcp:accept(LSock),
+    {ok, Bin} = do_recv(Sock, []),
+    ok = gen_tcp:close(Sock),
+    Bin.
+
+do_recv(Sock, Bs) -&gt;
+    case gen_tcp:recv(Sock, 0) of
+        {ok, B} -&gt;
+            do_recv(Sock, [Bs, B]);
+        {error, closed} -&gt;
+            {ok, list_to_binary(Bs)}</pre></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_343685226FM"><div class="nodecontent" style="font-size:100%;">主动接收非阻塞</div></li>
+	<li class="basic" id="FMID_635837704FM"><div class="nodecontent" style="font-size:100%;">被动接收阻塞</div></li>
+	<li class="basic" id="FMID_1663082300FM"><div class="nodecontent" style="font-size:100%;">混合接收半阻塞</div></li>
+	<li class="basic" id="FMID_876614724FM"><div class="nodecontent" style="font-size:100%;">模型的性能问题,常用的是哪一种</div></li></ul></li>
+	<li class="col" id="FMID_1480960889FM"><div class="nodecontent" style="font-size:100%;">inet</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_551467288FM"><div class="nodecontent">提供一个操作TCP/IP protocols的接口模块</div></li>
+	<li class="basic" id="FMID_796849677FM"><div class="nodecontent" style="font-size:100%;">inet:peernae(Socket)得到IP和Port</div></li></ul></li></ul></li>
+	<li class="col" id="FMID_961998874FM"><div class="nodecontent" style="font-size:100%;">分布式</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1620593674FM"><div class="nodecontent" style="font-size:100%;">rpc</div></li>
+	<li class="basic" id="FMID_99707791FM"><div class="nodecontent" style="font-size:100%;">global</div></li></ul></li>
+	<li class="col" id="FMID_230712256FM"><div class="nodecontent" style="font-size:100%;">开源项目</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_474198456FM"><div class="nodecontent" style="font-size:100%;"><a href="https://github.com/ninenines/ranch">Ranch:用得非常广的TCP缓冲池</a> <a href="https://github.com/ninenines/ranch"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1268673168FM"><div class="nodecontent"><a href="http://ninenines.eu/articles/ranch-ftp/">Build an FTP Server with Ranch in 30 Minutes</a> <a href="http://ninenines.eu/articles/ranch-ftp/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="col" id="FMID_154287056FM"><div class="nodecontent"><a href="https://github.com/ninenines/cowboy">Base on Cowboy</a> <a href="https://github.com/ninenines/cowboy"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_9359080FM"><div class="nodecontent"><a href="https://github.com/tsujigiri/axiom"> a micro-framework for building web applications:axiom</a> <a href="https://github.com/tsujigiri/axiom"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_832948935FM"><div class="nodecontent"><a href="https://github.com/kivra/giallo">Giallo aims to provide a small and flexible web framework</a> <a href="https://github.com/kivra/giallo"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1416459090FM"><div class="nodecontent"><a href="https://github.com/extend/bullet">Simple, reliable, efficient streaming for Cowboy.</a> <a href="https://github.com/extend/bullet"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="basic" id="FMID_1581295745FM"><div class="nodecontent"><a href="https://github.com/ChicagoBoss/ChicagoBoss/wiki/Comparison-of-Erlang-Web-Frameworks">非常全Web Framewoks的选择讨论</a> <a href="https://github.com/ChicagoBoss/ChicagoBoss/wiki/Comparison-of-Erlang-Web-Frameworks"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_33933533FM"><div class="nodecontent"><a href="http://chicagoboss.org/">chicagoboss: It offers all the conveniences of modern web development, including Comet.</a> <a href="http://chicagoboss.org/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1821886308FM"><div class="nodecontent"><a href="https://github.com/ferd/erlang-history">erlang-history - Hacks to add shell history to Erlang's shell</a> <a href="https://github.com/ferd/erlang-history"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1328093067FM"><div class="nodecontent"><a href="https://github.com/rustyio/sync">Sync is a developer utility. It recompiles and reloads your Erlang code on-the-fly.</a> <a href="https://github.com/rustyio/sync"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1583718023FM"><div class="nodecontent"><a href="https://ferd.github.io/recon/">Recon:assist DevOps people diagnose problems in production nodes</a> <a href="https://ferd.github.io/recon/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="col" id="FMID_863219856FM"><div class="nodecontent" style="font-size:100%;">IDE选择</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_695611395FM"><div class="nodecontent" style="font-size:100%;">Emacs</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1871705208FM"><div class="nodecontent"><a href="https://github.com/tjarvstrand/edts">Edts--Better than flymake</a> <a href="https://github.com/tjarvstrand/edts"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_393361238FM"><div class="nodecontent"><a href="https://github.com/massemanet/distel/">Distel</a> <a href="https://github.com/massemanet/distel/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_721446411FM"><div class="nodecontent"><a href="https://github.com/purcell/emacs.d">如果不想配置，就在github上找purcell/emacs.d </a> <a href="https://github.com/purcell/emacs.d"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1668145381FM"><div class="nodecontent"><a href="http://meng6.net/pages/computing/key_bindings/key_bindings_of_emacs/#.VQWNvOHuboa">Emacs常用键绑定</a> <a href="http://meng6.net/pages/computing/key_bindings/key_bindings_of_emacs/#.VQWNvOHuboa"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="basic" id="FMID_214859232FM"><div class="nodecontent" style="font-size:100%;"><a href="http://ignatov.github.io/intellij-erlang/">IntellijIDEA(看代码利器)</a> <a href="http://ignatov.github.io/intellij-erlang/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="col" id="FMID_798289579FM"><div class="nodecontent" style="font-size:100%;"><p>
+      优秀资源
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_450154210FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/static/doc/mailinglist.html">MailingList</a> <a href="http://www.erlang.org/static/doc/mailinglist.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_414731075FM"><div class="nodecontent"><a href="http://zealdocs.org/">使用离线文档查看利器{linux,zeal},{mac,dash},{windows,IntellijIDEA}</a> <a href="http://zealdocs.org/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1323793121FM"><div class="nodecontent" style="font-size:100%;"><a href="https://github.com/erlang/otp/wiki/Routemap-source-tree">查看BIF及源码</a> <a href="https://github.com/erlang/otp/wiki/Routemap-source-tree"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="col" id="FMID_1703262339FM"><div class="nodecontent" style="font-size:100%;">系统小测试</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1218207812FM"><div class="nodecontent" style="font-size:100%;"><a href="http://www.erlang.org/course/exercises.html">官方练习</a> <a href="http://www.erlang.org/course/exercises.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1620259837FM"><div class="nodecontent" style="font-size:100%;"><a href="http://chimera.labs.oreilly.com/books/1234000000726">小甜品</a> <a href="http://chimera.labs.oreilly.com/books/1234000000726"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="basic" id="FMID_1739398074FM"><div class="nodecontent"><a href="https://howistart.org/posts/erlang/1">从零开始构造一个完整的release--Fred</a> <a href="https://howistart.org/posts/erlang/1"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1220079821FM"><div class="nodecontent"><a href="https://searchcode.com/">功能强大的搜索source引擎</a> <a href="https://searchcode.com/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="col" id="FMID_1252944317FM"><div class="boxed"><div class="nodecontent">Joe Armstrong</div><div class="note-and-attributes"><span class="note"><p>
+      Erlang创始人
+    </p></span></div></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1015328499FM"><div class="nodecontent"><a href="http://joearms.github.io/index.html">github blog</a> <a href="http://joearms.github.io/index.html"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_978797051FM"><div class="nodecontent"><a href="http://joe.armstrong.usesthis.com/">about Joe</a> <a href="http://joe.armstrong.usesthis.com/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li></ul></li>
+	<li class="basic" id="FMID_693501459FM"><div class="nodecontent"><a href="http://ferd.ca/">Fred:Learn some erlang作者</a> <a href="http://ferd.ca/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_741886019FM"><div class="nodecontent"><a href="http://blog.yufeng.info/">系统技术非业余研究--霸爷</a> <a href="http://blog.yufeng.info/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_960507596FM"><div class="nodecontent"><a href="http://www.cnblogs.com/me-sa/">回头再说--坚强2002</a> <a href="http://www.cnblogs.com/me-sa/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1428438988FM"><div class="nodecontent"><a href="http://erlangcentral.org/wiki/index.php/Building_a_Non-blocking_TCP_server_using_OTP_principles">/Building_a_Non-blocking_TCP_server_using_OTP_principles</a> <a href="http://erlangcentral.org/wiki/index.php/Building_a_Non-blocking_TCP_server_using_OTP_principles"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_27098000FM"><div class="nodecontent"><a href="https://github.com/erlang/otp/tree/maint/erts/emulator/internal_doc">Erlang内部实现文档</a> <a href="https://github.com/erlang/otp/tree/maint/erts/emulator/internal_doc"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1711459116FM"><div class="nodecontent"><a href="http://roberto-aloi.com/">stackoverflow小能手：Roberto Aloi</a> <a href="http://roberto-aloi.com/"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_194070802FM"><div class="nodecontent"><a href="https://medium.com/@jlouis666">Jesper L. Andersen</a> <a href="https://medium.com/@jlouis666"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_523341811FM"><div class="nodecontent"><a href="https://medium.com/@unbalancedparen">Federico Carrone</a> <a href="https://medium.com/@unbalancedparen"><img src="http://zhongwencool.qiniudn.com//ilink.png" alt="User Link" style="border-width:0" /></a></div></li>
+	<li class="basic" id="FMID_1155132384FM"><div class="nodecontent">PS:因为Erlang社区不愠不火的特性，你可以自己在stackoverflow上使用Rss订阅Erlang内容</div></li></ul></li>
+	<li class="col" id="FMID_1962127258FM"><div class="nodecontent" style="font-size:100%;">常见问题TODO</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_277124853FM"><div class="nodecontent" style="font-size:100%;">erlang文件的编码格式影响</div></li>
+	<li class="basic" id="FMID_411661620FM"><div class="nodecontent" style="font-size:100%;">死锁产生和解决方法</div></li>
+	<li class="basic" id="FMID_1277178046FM"><div class="nodecontent" style="font-size:100%;">动态加载原理</div></li>
+	<li class="col" id="FMID_1262087574FM"><div class="nodecontent" style="font-size:100%;">并发要考虑的因素</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1214162242FM"><div class="nodecontent" style="font-size:100%;">并发粒子</div></li>
+	<li class="basic" id="FMID_1485811185FM"><div class="nodecontent" style="font-size:100%;">不要创建太多进程</div></li>
+	<li class="basic" id="FMID_916402562FM"><div class="nodecontent" style="font-size:100%;">在恰当的抽象层上思考</div></li></ul></li>
+	<li class="basic" id="FMID_1782042778FM"><div class="nodecontent" style="font-size:100%;">SMP,Hipe</div></li>
+	<li class="basic" id="FMID_1930269736FM"><div class="nodecontent" style="font-size:100%;">master,slave切换时发生了什么</div></li></ul></li></ul></li></ul></div></body>
+	</html>
+
