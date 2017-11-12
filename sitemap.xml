@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://tried.cc/about/index.html</loc>
+    
+    <lastmod>2017-11-12T09:27:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/02/29/elixir-001-make-lifelog-by-tty/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/03/07/elixir-003-mix-archives/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/03/14/elixir-004-change-config-by-system-env/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/04/02/elixir-005-see-data-detail-by-i-helper/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/04/04/elixir-006-decode-CSV/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/04/04/elixir-007-module-on_definition/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/03/02/elixir-002-auto-connect-nodes/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/04/05/elixir-008-module-apply-function/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/04/10/elixir-010-get_in-put_in/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/12/21/elixir-011-http-client-maxwell/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/10/01/erlang-001-mnesia-upgrade-md/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2017/03/02/teach-your-self-sql/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tried.cc/2016/04/06/elixir-009-behaviour-gen_server/</loc>
+    
+    <lastmod>2017-11-06T06:54:53.000Z</lastmod>
+    
+  </url>
+  
+</urlset>
