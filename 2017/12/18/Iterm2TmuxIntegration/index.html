@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Erlang Elixir GTD OmniFocus"><meta name="baidu-site-verification" content="1JJWcdBBxw"><title>Iterm2+Tmux利器 | 写着写着就懂了</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Iterm2+Tmux利器</h1><a id="logo" href="/.">写着写着就懂了</a><p class="description">光是知道是不够的,必须加以运用;光是希望是不够的,非去做不可.--李小龍</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Iterm2+Tmux利器</h1><div class="post-meta">Dec 18, 2017<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a href="/2017/12/18/Iterm2TmuxIntegration/#vcomment" class="disqus-comment-count"><span data-xid="/2017/12/18/Iterm2TmuxIntegration/" class="valine-comment-count"></span><span>条评论</span></a><div class="post-content"><p>几乎每个Iterm2的使用者都会被找开了众多的tab烦恼，但是又不愿意把这些tab关掉，导致来回切换tab费劲。很大一部分原因是因为没有把环境分开，不同的工作使用不同的环境和集合窗口。<br><a href="https://github.com/tmux/tmux/wiki" target="_blank" rel="external">tmux</a>是把多个虚拟窗口看成一个物理窗口(terminal multiplexer)，通过tmux的命令来操作这些窗口集合，方便切换且不会打乱你原来的工作环境，有点类似于<a href="https://www.gnu.org/software/screen/" target="_blank" rel="external">Screen - GNU</a>，<strong>两者最强大的就是能把整个窗口都切换到后台运行，需要的时候再切换回来</strong>， 但是tmux的可操控性更好。<br><img src="www.tried.cc/tmux.png" alt=""></p>
+<ul>
+<li>在screen中，每个instance都用自己完整独立的进程，而tmux则只在第一次运行时，会启动一个server,接下再启动instance则会去连接已有的server,这就意味着，可以多个instance共享同一个session,大家看到的都是一样的，绝佳的结对编程用例。<a href="https://tmate.io/" target="_blank" rel="external">tmate • Instant terminal sharing</a>这个就是基于tmux用于共享terminal的项目。</li>
+<li>screen只支持窗口(windows)模式，tmux支持多panes模式(与item2一致),一个window里面可以分割为多个panes(见上图)。</li>
+</ul>
+<p>但是对于我这种不需要在vim使用tumx的人来说，tmux的缺点也很显示：</p>
+<ul>
+<li>要学习一整套tmux的快捷键和命令(<code>man tmux</code>可以看到使用手册大约有50页)，复杂到甚至有人把它的使用看成一种哲学。<a href="http://tmuxp.readthedocs.io/en/latest/about_tmux.html" target="_blank" rel="external">The Tao of tmux — tmuxp 1.3.5 documentation</a></li>
+<li>ctrl+b与emacs中的回退光标冲突了， 要时刻记住自己是在正常的终端还是在tmux中，不能随意的使用滚轮上下滚动。</li>
+<li>不能向iterm2那样方便的拖动窗口调整布局。</li>
+</ul>
+<p>Iterm2整合tmux后就彻底的解决了以上缺点，并保留了tmux的所有优点。<br>Iterm2的核心思路就是把tmux中的各种命令操作映射到iterm2原有的操作中，<br>真正做到在iterm2中使用tmux和不使用tmux的操作并不区别。把学习成本降低为零。</p>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><p>当你决定使用tmux时，你最好一直都使用tmux来管理你的环境。为每一种环境设置不同的session, 比如：github，work，test，方便切换。</p>
+<h3 id="iTerm2中tmux基本设置"><a href="#iTerm2中tmux基本设置" class="headerlink" title="iTerm2中tmux基本设置"></a>iTerm2中tmux基本设置</h3><ol>
+<li>在login shell中send text as start:<br><code>tmux ls &amp;&amp; read session &amp;&amp; tmux -CC attach -t ${session:-default} || tmux -CC new -s ${session:-default}</code><pre><code>- `tmux ls` 列出已有的tmux session;
+- `read session` 输入你需要打开的session;
+- `tmux -CC attact -t ${session:-default}` 进入session；
+- `|| tmux -CC new -s ${session:-default}`如果session不存在则新建此session。
+</code></pre><img src="www.tried.cc/tmux_profile.jpg" alt=""></li>
+<li>在General选项中设置成以下，效果是每次打开使用tmux -CC新建session时都会使用一个新的窗口，并把tmux client session的命令隐藏到后台。<br><img src="www.tried.cc/tmux_new_windows.jpg" alt=""></li>
+<li>为了区别与其它的终端，我在colors中也选择了的color Presets中也选择了Tango Dark。<br>整体效果如下：<br><img src="www.tried.cc/iterm2_tmux_example.jpg" alt=""><br>是不是感觉和iterm2内置的窗口没有区别！这就是它最棒的地方，如果你点了左上角的小红点关闭窗口，并不是真正的关闭，只是把此session切到后台进行，你可以随时通过命令把它(attatch)切回来。</li>
+</ol>
+<h3 id="命令详解"><a href="#命令详解" class="headerlink" title="命令详解"></a>命令详解</h3><p>如果你完全按照上面的设置后，以后的绝大部分操作都不需要手动输入tmux命令，因为iterm2已把tmux中大部分操作命令都映射到了自己身上，比如：</p>
+<pre><code>- 关闭标签，窗口，会话 ——&gt; 映射为结束tmux 标签，窗口，会话；
+- `Command + D`  `Command + shift + D` 分拆panel；
+- 拖拉窗口调整panel布局；      
+</code></pre><p>通过这些映射，你完全不需要输入任何的tmux命令，就能流畅地使用tmux。<br>如果你觉得打开新标签页的方式来创建session的不太灵活，你可以使用命令操作。以下就是2个核心命令：<br><code>tmux -CC -t session-name</code>  用新窗口新建一个session；<br><code>tmux -CC attach -t session-name</code> 转入到指定的session中；<br>总之，绝大部分情况下，你都不需要记住并使用这些命令。</p>
+<h3 id="其它你可能期待的设置"><a href="#其它你可能期待的设置" class="headerlink" title="其它你可能期待的设置"></a>其它你可能期待的设置</h3><p><img src="www.tried.cc/iterm2_point_setting.jpg" alt=""><br>让选中的pane跟随鼠标，切换时少点击一下，爽！<br><img src="www.tried.cc/iterm2_shortcuts.jpg" alt=""><br>切换panes tabs windows的快捷键。</p>
+<ul>
+<li>最实用且一定要掌握的快捷键<br><code>Command + T</code> 新建Tab<br><code>Command + W</code> 关闭选中panes, tab, window<br><code>Command + D</code> 纵向分割选中的pane<br><code>Command + Shift + D</code> 横向分割选中的pane<br><code>Command + Shift + Enter</code> 最大化选中的pane,隐藏其它panes,再次按下就还原布局。<br><code>Command + ;</code> 提示输入过的命令<br><code>Command + Shift + H</code> 根据时间弹出历史记录</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>只需要适当的设置，无需学习任何tmux命令，你也可以熟练使用tmux神器。</p>
+</div><div class="tags"><a href="/tags/Tool/">Tool</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify, 
+  verify:verify, 
+  appId:'y7v8CIfItJxfCg1ksn8oSxX6-gzGzoHsz',
+  appKey:'koUqlh69U6FIKhSehXb2uIUz',
+  placeholder:'友善的人运气一般不会太差',
+  avatar:'wavatar',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="https://tried.cc"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/Iterm2TmuxIntegration/">Iterm2+Tmux利器</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">写着写着就懂了.</a> Powered by  <a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> maupassant-hexo.</a>Hosted by <a rel="nofollow" target="_blank" href="https://pages.coding.me">Coding Pages.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
