@@ -78,7 +78,7 @@
 <li>接放外来显示器(Attached Monitor)。</li>
 <li>开关笔记本盖子(Laptop Lid Open/Closed State)。</li>
 </ul>
-<p>后续的Rules分根据你打勾的Source来提供可添加的Rules，建议关闭掉那些你不需要的Evidence Sources。</p>
+<p>后续的Rules会根据你打勾的Source来提供可添加的Rules，建议关闭掉那些你不需要的Evidence Sources。</p>
 <h4 id="Rules与Actions设置"><a href="#Rules与Actions设置" class="headerlink" title="Rules与Actions设置"></a>Rules与Actions设置</h4><p><img src="http://www.tried.cc/conctrolpanel_rule_action.jpg" alt="Rules&amp;Actions"><br><strong>Rules</strong>：规定了满足事件来源(Evidence Source)状态时，会给对应的Context增加指定的可信度(Confidence)。比如：<br>我在上图设置为只要是USB插入就认定是公司有线，然后把公司(有线)的可信度设置为100%。<br><strong>Actions</strong>：可信度达到<strong>General</strong>里规定的百分比时就会发生Context切换(离开旧Context,加入新Context)。<br>Actions也非常丰富，可以打开/关闭指定的应用，执行脚本，设置网络等等，留着自己去探索。<br>上图，我设置了我的3种Context切换时应该做的事：</p>
 <ul>
 <li>进入Work(有线)，关闭SS及Lantern，执行设置网络代理脚本。</li>
@@ -88,7 +88,7 @@
 </ul>
 <p>附带： 切换网络代理的脚本<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">networkservice=$(networksetup -listallnetworkservices | head -n 2 | tail -n 1)  <span class="comment">#获取Mac当前使用的网络名称</span></div><div class="line"><span class="built_in">echo</span> Open web proxy <span class="keyword">for</span> networkservice: <span class="variable">$networkservice</span></div><div class="line">sudo networksetup -setdhcp <span class="variable">$networkservice</span> 0 <span class="comment">#设置DHCP获取IP</span></div><div class="line"></div><div class="line">sudo networksetup -setwebproxy <span class="variable">$networkservice</span> 173.21.3.2 8086   <span class="comment">#设置Web HTTP代理</span></div><div class="line">sudo networksetup -setsecurewebproxy <span class="variable">$networkservice</span> 173.21.3.2 8086   <span class="comment">#设置Web HTTPS代理</span></div><div class="line">sudo networksetup -setwebproxystate <span class="variable">$networkservice</span> on   <span class="comment">#打开Web HTTP代理</span></div><div class="line">sudo networksetup -setsecurewebproxystate <span class="variable">$networkservice</span> on  <span class="comment">#打开Web HTTPS代理</span></div><div class="line"><span class="built_in">echo</span> Done</div></pre></td></tr></table></figure></p>
 <h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>当你设计了多种复杂的Rules时，不能直观得到当前状态各个Context的Confidence，这时你可以查看<strong>设置(Preferences)</strong> -&gt; <strong>高级(Advanced)</strong> 里面的实时的计算结果。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>根据场景切换网络只是ContorlPanel的一个小应用场景，你可以细读一下设置中的Evidence Source，结合自身需要，尝试把重复的操作自动化，实现一些非常酷的事(<em>欢迎在评论里分享你的实践</em>)。不过美中不足的是它无法像IFTTT那样实现监听某事件然后直接执行具体的Actions上(跳过Context)。比如蓝牙连接到airpods就直接打开网易云音乐。你必须间接的使用Context来控制。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>根据场景切换网络只是ContorlPanel的一个小应用场景，你可以细读一下设置中的Evidence Source，结合自身需要，尝试把重复的操作自动化，实现一些非常酷的事(<em>欢迎在评论里分享你的实践</em>)。不过美中不足的是它无法像IFTTT那样实现监听某事件然后直接执行具体的Actions上(跳过Context)。比如蓝牙连接到airpods就直接打开网易云音乐。你必须间接使用Context来控制。</p>
 <h2 id="参考的资料"><a href="#参考的资料" class="headerlink" title="参考的资料"></a>参考的资料</h2><ul>
 <li>ControlPlane - context-sensitive computing for OS X <a href="https://github.com/dustinrue/ControlPlane" target="_blank" rel="external">ControlPanel Github</a></li>
 <li><a href="https://computers.tutsplus.com/tutorials/take-control-with-controlplane--cms-20516" target="_blank" rel="external">Take Control With ControlPlane</a></li>
