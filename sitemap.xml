@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tried.cc/about/index.html</loc>
+    
+    <lastmod>2018-01-01T09:29:58.449Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tried.cc/2017/12/31/ContorlpanelChangeNetwork/</loc>
     
     <lastmod>2018-01-01T03:54:26.664Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://tried.cc/2017/12/18/Iterm2TmuxIntegration/</loc>
     
     <lastmod>2018-01-01T03:49:11.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tried.cc/about/index.html</loc>
-    
-    <lastmod>2017-11-12T12:52:26.000Z</lastmod>
     
   </url>
   
