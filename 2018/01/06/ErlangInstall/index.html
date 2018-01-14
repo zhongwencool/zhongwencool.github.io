@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Erlang Elixir GTD OmniFocus"><meta name="baidu-site-verification" content="1JJWcdBBxw"><title>Erlang安装指南 | 写着写着就懂了</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js">   </script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Erlang安装指南</h1><a id="logo" href="/.">写着写着就懂了</a><p class="description">光是知道是不够的,必须加以运用;光是希望是不够的,非去做不可--李小龍</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/echarts/2.2.7/echarts-all.js"></script><div class="post"><h1 class="post-title">Erlang安装指南</h1><div class="post-meta">Jan 6, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/2018/01/06/ErlangInstall/#vcomment"><span class="valine-comment-count" data-xid="/2018/01/06/ErlangInstall/"></span><span>条评论</span></a><div class="post-content"><script>
+data = {"name": "flare",
+        "children": [
+            {"name": "analytics",
+                "children": [
+                    {"name": "cluster",
+                        "children": [
+                            {"name": "AgglomerativeCluster", "value": 3938},
+                            {"name": "CommunityStructure", "value": 3812},
+                            {"name": "HierarchicalCluster", "value": 6714},
+                            {"name": "MergeEdge", "value": 743}
+                            ]}]
+            }]}
+</script>
+
+<div id="echarts1785" style="width: 80%;height: 400px;margin: 0 auto"></div>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('echarts1785'));
+
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip: {
+        trigger: 'item',
+        triggerOn: 'mousemove'
+            },
+    series: [{
+             type: 'tree',
+             data: [data],
+             top: '1%',
+             left: '7%',
+             bottom: '1%',
+             right: '20%',
+             symbolSize: 7,
+             label: {
+                 normal: {
+                     position: 'left',
+                     verticalAlign: 'middle',
+                     align: 'right',
+                     fontSize: 9
+                     }
+             },
+             leaves: {
+                 label: {
+                     normal: {
+                         position: 'right',
+                         verticalAlign: 'middle',
+                         align: 'left'
+                     }
+                 }
+             },
+             expandAndCollapse: true,
+             animationDuration: 550,
+             animationDurationUpdate: 750
+    }]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+</script>
+<h3 id="Erlang安装方式"><a href="#Erlang安装方式" class="headerlink" title="Erlang安装方式"></a>Erlang安装方式</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二进制安装包</td>
+<td>完整release包(包含依赖周边)</td>
+<td>无法修改编译参数(比如在原release上再加hipe参数)</td>
+</tr>
+<tr>
+<td>源码构建安装</td>
+<td>允许自定义各种编译参数</td>
+<td>需要按需安装依赖,安装过程复杂且构建时间长</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>二进制包安装</strong> Windows系统下载<code>*.exe</code>，即开即用。</li>
+<li><strong>源码安装</strong> 下载<code>*.tar.gz</code>，安装各种依赖，配置环境变量，解压后<code>make &amp; make install</code>。</li>
+</ul>
+<a id="more"></a> 
+<h3 id="Erlang下载来源"><a href="#Erlang下载来源" class="headerlink" title="Erlang下载来源"></a>Erlang下载来源</h3><ul>
+<li><a href="http://erlang.org" target="_blank" rel="external">Erlang官网</a> 最权威下载源，包含所有历史版本的源码(文档)及Windows版的<code>*.exe</code>。</li>
+<li><a href="https://github.com/erlang/otp" target="_blank" rel="external">Erlang Github Release</a> 提供历史版本的所有的源码(文档)。</li>
+<li><a href="https://www.erlang-solutions.com/resources/download.html" target="_blank" rel="external">Erlang Solution</a> 提供主流操作系统的多种编译选项组合的二进制安装包，及部分老版本的源码。</li>
+<li>又拍云镜像 <a href="http://erlang.b0.upaiyun.com" target="_blank" rel="external">http://erlang.b0.upaiyun.com</a> (直接点击链接无法访问)是Erlang官网下载镜像站，国内下载速度超快。后续会详细介绍：使用它结合<code>kerl</code>工具做到下载Erlang只要30秒。</li>
+</ul>
+<h3 id="二进制安装包"><a href="#二进制安装包" class="headerlink" title="二进制安装包"></a>二进制安装包</h3><p>二进制安装包的安装非常简单，直接解压运行exe或<code>./Install</code>按提示配置。关键在于如何选择下载源？<br><a href="https://www.erlang-solutions.com/resources/download.html" target="_blank" rel="external">Erlang Solution</a>提供主流系统(<em>Ubuntu、CentOS、Mac OS X、Debian、Windows、Fedra、Raspbian</em>)的各种编译好的二进制版本。主要优势有：</p>
+<ul>
+<li>提供最新的稳定OTP包，操作系统自带的源版本更新通常会滞后，比如Ubuntu 12.04 LTS Precise Pangolin 系统自带源最新为<code>R14B02</code>时，Erlang solution已为它提供<code>R16B02</code>。</li>
+<li>如果你需要安装<code>hipe</code>编译的包，也有提供：<code>erlang-base-hipe</code>。</li>
+<li>灵活提供了多种含有不同Application的源：<code>erlang，esl-erlang，erlang-base package</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型(package)</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>erlang</td>
+<td>包括所有OTP组件及OTP Suite,没有erlang-doc erlang-manpages erlang-mode</td>
+</tr>
+<tr>
+<td>esl-erlang</td>
+<td>里面包含所有的OTP组件,比erlang package体积大一些</td>
+</tr>
+<tr>
+<td>erlang-base</td>
+<td>里面只包含了必要OTP组件,只有大约13M</td>
+</tr>
+</tbody>
+</table>
+<p>除了直接在Erlang Solution网页里下载二进制包，然后再解压使用外，更加<strong>推荐</strong>使用Erlang Solution源替换系统原有的源，这样就可以使用系统自带的包管理工具管理它，操作系统使用的包管理工具各不相同，Elixir官网提供了一份<a href="https://elixir-lang.org/install.html#distributions" target="_blank" rel="external">非常详细的指引</a>。</p>
+<h3 id="源码构建安装"><a href="#源码构建安装" class="headerlink" title="源码构建安装"></a>源码构建安装</h3><p>当找不到满足需求的二进制包时 ，就必须选择源码安装。步骤如下：</p>
+<ol>
+<li>安装必要依赖工具(解压&amp;编译工具)，例如：<code>unzip make gcc Perl5 m4 ncurses termcap</code>；</li>
+<li>根据需要安装Application依赖，例如：<code>crypto(OpenSSL) observer(wxWidgets)</code>；</li>
+<li>下载<code>*tar.gz</code>， 设置你需要<a href="http://erlang.org/doc/installation_guide/INSTALL.html#id64377" target="_blank" rel="external">选项的环境变量</a>；</li>
+<li><code>./configure &amp; make &amp; make install</code>。</li>
+</ol>
+<p>上面四步是源码安装必须的过程，所以大佬们想尽办法把这些繁杂过程写成脚本，让安装变得方便起来。其中功能做得全且好用被大家一致认可的有<a href="https://github.com/asdf-vm/asdf" target="_blank" rel="external">asdf</a>与<a href="https://github.com/kerl/kerl" target="_blank" rel="external">kerl</a>。接下来会通过对比两者的不同来辅助你应该选择哪一款。</p>
+<p>tip: 不要使用brew install kerl，版本太旧了</p>
+<h3 id="cross-compile是什么"><a href="#cross-compile是什么" class="headerlink" title="cross compile是什么"></a>cross compile是什么</h3><h3 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h3><ul>
+<li>如何Patch Application。</li>
+<li>如何确定系统的版本信息。</li>
+<li>如何确定你的Erlang版本正确安装了</li>
+</ul>
+<h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<li><a href="http://erlang.org/doc/installation_guide/INSTALL.html" target="_blank" rel="external">官方Erlang Install Guide</a></li>
+<li><a href="http://docs.basho.com/riak/kv/2.2.3/setup/installing/source/erlang/" target="_blank" rel="external">BASHO Install Erlang Guide</a></li>
+<li><a href="https://elixir-lang.org/install.html#distributions" target="_blank" rel="external">Elixir Install Guide</a></li>
+<li><a href="https://www.erlang-solutions.com/resources/download.html" target="_blank" rel="external">Erlang Solution Download</a></li>
+<li><a href="https://www.rabbitmq.com/troubleshooting-ssl.html" target="_blank" rel="external">如何排查TLS/SSL 是否被正确地安装配置</a></li>
+<li><a href="https://github.com/kerl/kerl" target="_blank" rel="external">kerl readme</a></li>
+<li><a href="https://github.com/asdf-vm/asdf" target="_blank" rel="external">asdf readme</a></li>
+</ul>
+</div><div class="tags"><a href="/tags/erlang/">erlang</a></div><div class="post-nav"><a class="next" href="/2017/12/31/ContorlpanelChangeNetwork/">ContorlPanel自动切换网络设置</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'y7v8CIfItJxfCg1ksn8oSxX6-gzGzoHsz',
+  appKey:'koUqlh69U6FIKhSehXb2uIUz',
+  placeholder:'友善的人运气一般不会太差',
+  avatar:'wavatar',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://tried.cc"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/OSX/">OSX</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/ErlangInstall/">Erlang安装指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/31/ContorlpanelChangeNetwork/">ContorlPanel自动切换网络设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/Iterm2TmuxIntegration/">Iterm2整合Tmux利器</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">写着写着就懂了 | </a> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/"> 粤ICP备17160910号 | </a>Hosted by <a rel="nofollow" target="_blank" href="https://pages.coding.me">Coding Pages.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

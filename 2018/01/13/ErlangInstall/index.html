@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Erlang Elixir GTD OmniFocus"><meta name="baidu-site-verification" content="1JJWcdBBxw"><title>Erlang/OTP安装指南 | 写着写着就懂了</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js">   </script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Erlang/OTP安装指南</h1><a id="logo" href="/.">写着写着就懂了</a><p class="description">光是知道是不够的,必须加以运用;光是希望是不够的,非去做不可--李小龍</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Erlang/OTP安装指南</h1><div class="post-meta">Jan 13, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><a class="disqus-comment-count" href="/2018/01/13/ErlangInstall/#vcomment"><span class="valine-comment-count" data-xid="/2018/01/13/ErlangInstall/"></span><span>条评论</span></a><div class="post-content"><p>介绍Erlang/OTP两种安装方式及使用又拍云镜像解决国内下载源码超级慢问题。<br><img src="http://www.tried.cc/erl_install_3.jpg" alt=""><br><a id="more"></a> </p>
+<h3 id="Erlang-OTP安装方式"><a href="#Erlang-OTP安装方式" class="headerlink" title="Erlang/OTP安装方式"></a>Erlang/OTP安装方式</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二进制安装包</td>
+<td>完整release包(包含依赖周边)</td>
+<td>无法修改编译参数(比如在原release上再加hipe参数)</td>
+</tr>
+<tr>
+<td>源码构建安装</td>
+<td>允许自定义各种编译参数</td>
+<td>需要按需安装依赖,安装过程复杂且构建时间长</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>二进制包安装</strong> Windows系统下载<code>*.exe</code>，即开即用。</li>
+<li><strong>源码安装</strong> 下载<code>*.tar.gz</code>，安装各种依赖，配置环境变量，解压后<code>make &amp; make install</code>。</li>
+</ul>
+<h3 id="Erlang-OTP下载来源"><a href="#Erlang-OTP下载来源" class="headerlink" title="Erlang/OTP下载来源"></a>Erlang/OTP下载来源</h3><ul>
+<li><a href="http://erlang.org" target="_blank" rel="external">Erlang官网</a> 最权威下载源，包含所有历史版本的源码(文档)及Windows版的<code>*.exe</code>。</li>
+<li><a href="https://github.com/erlang/otp" target="_blank" rel="external">Erlang Github Release</a> 提供历史版本的所有的源码(文档)。</li>
+<li><a href="https://www.erlang-solutions.com/resources/download.html" target="_blank" rel="external">Erlang Solution</a> 提供主流操作系统的多种编译选项组合的二进制安装包，及部分老版本的源码。</li>
+<li>又拍云镜像 <a href="http://erlang.b0.upaiyun.com" target="_blank" rel="external">http://erlang.b0.upaiyun.com</a> (直接点击链接无法访问)是Erlang官网下载镜像站，国内下载速度超快。后续会详细介绍：使用它改造<code>asdf</code>做到下载Erlang只要30秒，彻底解决国内下载Erlang源慢的问题。</li>
+</ul>
+<h3 id="二进制安装包"><a href="#二进制安装包" class="headerlink" title="二进制安装包"></a>二进制安装包</h3><p>二进制安装包的安装非常简单，直接解压运行exe或<code>./Install</code>按提示配置。关键在于如何选择下载源？<br><a href="https://www.erlang-solutions.com/resources/download.html" target="_blank" rel="external">Erlang Solution</a>提供主流系统(<em>Ubuntu、CentOS、Mac OS X、Debian、Windows、Fedra、Raspbian</em>)的各种编译好的二进制版本。主要优势有：</p>
+<ul>
+<li>提供最新稳定OTP包，操作系统自带源版本更新通常会滞后，比如Ubuntu 12.04 LTS Precise Pangolin 系统自带源最新为<code>R14B02</code>时，Erlang solution已为它提供<code>R16B02</code>。</li>
+<li>如果你需要安装<code>hipe</code>编译的包，也有提供：<code>erlang-base-hipe</code>。</li>
+<li>灵活提供了多种含有不同Application的源：<code>erlang，esl-erlang，erlang-base package</code>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型(package)</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>erlang</td>
+<td>包括所有OTP组件及OTP Suite,没有erlang-doc erlang-manpages erlang-mode</td>
+</tr>
+<tr>
+<td>esl-erlang</td>
+<td>里面包含所有的OTP组件,比erlang package体积大一些</td>
+</tr>
+<tr>
+<td>erlang-base</td>
+<td>里面只包含了必要OTP组件,只有大约13M</td>
+</tr>
+</tbody>
+</table>
+<p>除了直接在Erlang Solution网页里下载二进制包，然后再解压使用外，更加<strong>推荐</strong>使用Erlang Solution源替换系统原有的源，这样就可以使用系统自带的包管理工具管理它，操作系统使用的包管理工具各不相同，Elixir官网提供了一份<a href="https://elixir-lang.org/install.html#distributions" target="_blank" rel="external">非常详细的指引</a>。</p>
+<h3 id="源码构建安装"><a href="#源码构建安装" class="headerlink" title="源码构建安装"></a>源码构建安装</h3><p>当找不到满足需求的二进制包时 ，就必须选择源码安装。</p>
+<h4 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h4><ol>
+<li>安装必要依赖工具(解压&amp;编译工具)，例如：<code>unzip make gcc Perl5 m4 ncurses termcap</code>；</li>
+<li>根据需要安装Application依赖，例如：<code>crypto(OpenSSL) observer(wxWidgets)</code>；</li>
+<li>下载<code>*tar.gz</code>， 设置你需要<a href="http://erlang.org/doc/installation_guide/INSTALL.html#id64377" target="_blank" rel="external">选项的环境变量</a>；</li>
+<li><code>./configure &amp; make &amp; make install</code>。</li>
+</ol>
+<p>上面四步是源码安装必须的过程，所以社区大佬们想尽办法把这些繁杂过程写成脚本，让安装方便一些。其中功能做得全且好用被大家一致认可的有<a href="https://github.com/asdf-vm/asdf" target="_blank" rel="external">asdf</a>与<a href="https://github.com/kerl/kerl" target="_blank" rel="external">kerl</a>。</p>
+<h4 id="Kerl-Easy-building-and-installing-of-Erlang-OTP"><a href="#Kerl-Easy-building-and-installing-of-Erlang-OTP" class="headerlink" title="Kerl(Easy building and installing of Erlang/OTP)"></a>Kerl(Easy building and installing of Erlang/OTP)</h4><p><code>kerl</code>是专注于构建安装Erlang/OTP程序的纯shell脚本，没有任何依赖。特点是：</p>
+<ul>
+<li>可以同时安装多个版本的OTP并随意在不同版本间切换。</li>
+<li>可定制性强，很多命令和定制选项，带来的坏处就是上手相对于<code>asdf</code>会复杂一些。</li>
+</ul>
+<p>从实际使用效果看，命令确实不好记，有build install两大命令，每次使用前都需要查看文档才能记起来:( 。</p>
+<h4 id="ASDF-Extendable-version-manager"><a href="#ASDF-Extendable-version-manager" class="headerlink" title="ASDF(Extendable version manager)"></a>ASDF(Extendable version manager)</h4><p><code>asdf</code>是支持安装管理多个版本Ruby，Node.js，Elixir，Erlang（支持安装的语言越来越多，可以通过<code>asdf plugin-list-all</code>查看）版本管理系统。特点：上手容易，支持的语言多，命令简单好记。<br>最初<code>asdf</code>使用的Erlang插件<code>asdf-erlang</code>是自己维护的插件脚本，后来因为<code>kerl</code>功能齐全且好用，没有必要再重新造相同功能的轮子，所以在<a href="https://github.com/asdf-vm/asdf-erlang/pull/54" target="_blank" rel="external">2017年12月30号</a> 后依赖于<code>kerl</code>来管理。<br>同时，如果你以前使用<code>kerl</code>，现在也可以无缝迁移过来，因为它也支持<code>kerl</code>的所有设置(本来依赖的就是<code>kerl</code>)。唯一要做的就是把<code>.kerlrc</code>移到<code>~/.asdf/plugins/erlang/kerl-home/</code>下，目前使用的是此目录下<code>kerl</code>，后续<code>kerl</code>路径应该会改成可配置的。<br>确定我们只需要使用<code>asdf</code>后，我们重点<strong>解决如何设置从又拍云下载源码，解决国内从erlang.org下载速度超级慢的痛点！</strong></p>
+<ol>
+<li>根据<a href="https://github.com/asdf-vm/asdf-erlang#before-asdf-install" target="_blank" rel="external">before-asdf-install</a>指引安装所需的依赖，比如：<code>build-essential</code> <code>autoconf</code>。</li>
+<li><p>根据<a href="https://github.com/asdf-vm/asdf#setup" target="_blank" rel="external">asdf-setup</a>安装<code>asdf</code>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.1</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> -e <span class="string">'\n. $HOME/.asdf/asdf.sh'</span> &gt;&gt; ~/.bashrc</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> -e <span class="string">'\n. $HOME/.asdf/completions/asdf.bash'</span> &gt;&gt; ~/.bashrc</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>asdf</code>装载<code>asdf-erlang</code>插件。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">$ asdf plugin-<span class="built_in">add</span> erlang http<span class="variable">s:</span>//github.<span class="keyword">com</span>/asdf-<span class="keyword">vm</span>/asdf-erlang.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>改造插件：设置从又拍云下载源码。</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">$ vim ~/.asdf/plugins/erlang/bin/install</div><div class="line">install_erlang() &#123;</div><div class="line">  ensure_kerl_setup</div><div class="line">  </div><div class="line">  <span class="builtin-name">export</span> <span class="attribute">MAKEFLAGS</span>=<span class="string">"-j<span class="variable">$ASDF_CONCURRENCY</span>"</span></div><div class="line">  <span class="builtin-name">export</span> <span class="attribute">ERLANG_DOWNLOAD_URL</span>=<span class="string">"http://erlang.b0.upaiyun.com/download"</span></div><div class="line">  $(kerl_path) build <span class="string">"<span class="variable">$ASDF_INSTALL_VERSION</span>"</span> <span class="string">"asdf_<span class="variable">$ASDF_INSTALL_VERSION</span>"</span></div><div class="line">  $(kerl_path) install <span class="string">"asdf_<span class="variable">$ASDF_INSTALL_VERSION</span>"</span> <span class="string">"<span class="variable">$ASDF_INSTALL_PATH</span>"</span></div><div class="line">  $(kerl_path) cleanup <span class="string">"<span class="variable">$ASDF_INSTALL_VERSION</span>"</span>&#125;</div></pre></td></tr></table></figure>
+<p>目的是在install文件install_erlang中指定kerl的下载URL<br><code>export ERLANG_DOWNLOAD_URL=&quot;http://erlang.b0.upaiyun.com/download&quot;</code></p>
+</li>
+<li><p>下载构建指定OTP。</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="variable">$ </span>asdf install erlang <span class="number">20.0</span></div><div class="line">Downloading OTP-<span class="number">20.0</span>.tar.gz to /Users/zhongwen/.asdf/plugins/erlang/kerl-home/archives</div><div class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</div><div class="line">                                 Dload  Upload   Total   Spent    Left  Speed</div><div class="line"><span class="number">100</span>   <span class="number">120</span>    <span class="number">0</span>   <span class="number">120</span>    <span class="number">0</span>     <span class="number">0</span>    <span class="number">101</span>      <span class="number">0</span> --<span class="symbol">:--</span><span class="symbol">:--</span>  <span class="number">0</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">01</span> --<span class="symbol">:--</span><span class="symbol">:--</span>   <span class="number">101</span></div><div class="line"><span class="number">100</span> <span class="number">50.3</span>M  <span class="number">100</span> <span class="number">50.3</span>M    <span class="number">0</span>     <span class="number">0</span>  <span class="number">1345</span>k      <span class="number">0</span>  <span class="number">0</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">38</span>  <span class="number">0</span><span class="symbol">:</span><span class="number">00</span><span class="symbol">:</span><span class="number">38</span> --<span class="symbol">:--</span><span class="symbol">:--</span> <span class="number">2512</span>k</div></pre></td></tr></table></figure>
+<p> 可以看到下载速度都在<code>1M</code>以上！！！速度飙升，不过下完后还要等待编译过程，大约要5~10分钟。    </p>
+</li>
+<li><p>全局设置Erlang版本。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> asdf global erlang 20.0</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>其它使用命令直接使用命令<code>asdf</code>就可以查看到。</p>
+</li>
+</ol>
+<p>以上基本满足了本地及测试日常开发所需要，但是如果需要在大量生产机器上都批量安装Erlang，通过以上方法则，每台机器都需要重新编译源码，编译一次需要5~10分钟，耗时不讨好。</p>
+<h3 id="如何一次编译，到处安装运行？"><a href="#如何一次编译，到处安装运行？" class="headerlink" title="如何一次编译，到处安装运行？"></a>如何一次编译，到处安装运行？</h3><p>最直接的方法:</p>
+<ul>
+<li>在其中一台机器编译后，写脚本把<code>~/.asdf/installs/erlang/20.0</code>整个打包复制到目标机器；</li>
+<li>登录目标机器，解包，执行<code>./Install</code> ,按提示配置应该的变量，比如<code>ERL_ROOT</code></li>
+</ul>
+<p>这是一个安装过程，没有编译所以也是非常快的。类似于使用Erlang Solution下载的二进制编译包，只不过这个编译包是我们自己打包的。<br>但是，<code>kerl</code>把上面的过程浓缩成了一个命令，不需要你自己写脚本。<br><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">$ kerl deploy anotherhost /path/to/<span class="keyword">install</span>/dir</div><div class="line">Cloning Erlang/OTP <span class="number">20.0</span> (/<span class="keyword">path</span>/<span class="keyword">to</span>/<span class="keyword">install</span>/dir) <span class="keyword">to</span> anotherhost (/<span class="keyword">path</span>/<span class="keyword">to</span>/<span class="keyword">install</span>/dir) ...</div><div class="line"><span class="keyword">On</span> anotherhost, you can <span class="keyword">activate</span> this installation running the <span class="keyword">following</span> command:</div><div class="line">. /<span class="keyword">path</span>/<span class="keyword">to</span>/<span class="keyword">install</span>/dir/<span class="keyword">activate</span></div><div class="line">Later <span class="keyword">on</span>, you can leave the installation typing:</div><div class="line">kerl_deactivate</div></pre></td></tr></table></figure></p>
+<h3 id="额外"><a href="#额外" class="headerlink" title="额外"></a>额外</h3><ul>
+<li>如果你想在Shell中像Elixir一样方便的查找文档，那么可以使用<a href="https://github.com/kerl/kerl#install-docsh" target="_blank" rel="external">kerl install-docsh</a>。</li>
+<li>在shell中查看使用的环境变量有那些：<code>system_information:environment().</code></li>
+<li><a href="http://erlang.org/doc/installation_guide/INSTALL-CROSS.html" target="_blank" rel="external">Cross compile</a> means using one type of system to compile the Erlang runtime system for a different type of system。典型的应用就是通过X86的Linux为嵌入式系统构建Erlang/OTP。</li>
+</ul>
+<h3 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h3><ul>
+<li><a href="http://erlang.org/doc/installation_guide/INSTALL.html" target="_blank" rel="external">官方Erlang install guide</a></li>
+<li><a href="http://docs.basho.com/riak/kv/2.2.3/setup/installing/source/erlang/" target="_blank" rel="external">BASHO install erlang guide</a></li>
+<li><a href="https://elixir-lang.org/install.html#distributions" target="_blank" rel="external">Elixir install guide</a></li>
+<li><a href="https://www.erlang-solutions.com/resources/download.html" target="_blank" rel="external">Erlang Solution download</a></li>
+<li><a href="https://www.rabbitmq.com/troubleshooting-ssl.html" target="_blank" rel="external">如何排查TLS/SSL 是否被正确地安装配置</a></li>
+<li><a href="https://github.com/kerl/kerl" target="_blank" rel="external">Kerl readme</a></li>
+<li><a href="https://github.com/asdf-vm/asdf" target="_blank" rel="external">ASDF readme</a></li>
+</ul>
+<p>失败并不可耻，低级的目标才是可耻的。伟大的努力中，即使失败也是光荣的。–李小龙</p>
+</div><div class="tags"><a href="/tags/erlang/">erlang</a></div><div class="post-nav"><a class="next" href="/2017/12/31/ContorlpanelChangeNetwork/">ContorlPanel自动切换网络设置</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == true ? true : false;
+var verify = 'false' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'y7v8CIfItJxfCg1ksn8oSxX6-gzGzoHsz',
+  appKey:'koUqlh69U6FIKhSehXb2uIUz',
+  placeholder:'友善的人运气一般不会太差',
+  avatar:'wavatar',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://tried.cc"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/OSX/">OSX</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/01/13/ErlangInstall/">Erlang/OTP安装指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/31/ContorlpanelChangeNetwork/">ContorlPanel自动切换网络设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/Iterm2TmuxIntegration/">Iterm2整合Tmux利器</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">写着写着就懂了 | </a> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/"> 粤ICP备17160910号 | </a>Hosted by <a rel="nofollow" target="_blank" href="https://pages.coding.me">Coding Pages.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

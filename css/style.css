@@ -795,9 +795,6 @@ figure.highlight,
     background: #f7f8f8;
     border-right: 1px solid #e6e6e6;
     padding: 0.3em 15px; }
-    figure.highlight .gutter .line,
-    .codeblock .gutter .line {
-      color: #aaaaaa; }
   figure.highlight .code,
   .codeblock .code {
     padding: 0.3em 15px 0.3em 1em;
@@ -1118,18 +1115,20 @@ figure.highlight,
 .highlight.sql .number {
   color: #0086b3; }
 
-.highlight.xml .tag {
+.highlight.xml .tag, .highlight.html .tag {
   color: #333; }
 
-.highlight.xml .value {
+.highlight.xml .value, .highlight.html .value {
   color: #183691; }
 
 .highlight.xml .attribute,
-.highlight.xml .attr {
+.highlight.xml .attr, .highlight.html .attribute,
+.highlight.html .attr {
   color: #795da3; }
 
 .highlight.xml .title,
-.highlight.xml .name {
+.highlight.xml .name, .highlight.html .title,
+.highlight.html .name {
   color: #63a35c; }
 
 .highlight.puppet .title {
