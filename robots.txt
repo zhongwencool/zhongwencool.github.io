@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /archives/
-Allow: /categories/
-Allow: /about/
-
-Sitemap: https://tried.cc/sitemap.xml
-Sitemap: https://tried.cc/baidusitemap.xml
