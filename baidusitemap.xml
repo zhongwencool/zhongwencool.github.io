@@ -4,8 +4,269 @@
 
     
   <url>
-    <loc>https://tried.cc/ErlangInstall/</loc>
-    <lastmod>2018-01-14T07:03:44.613Z</lastmod>
+    <loc>https://127.0.0.1:4000/elixir-010-get_in-put_in/</loc>
+    <lastmod>2018-04-04T01:50:11.255Z</lastmod>
+    <data>
+        <display>
+        <title>辅助处理Deeply Nested Data函数</title>
+        <pubTime>2016-04-10T14:19:02.000Z</pubTime>
+        
+        <tag>macro</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-011-http-client-maxwell/</loc>
+    <lastmod>2018-04-04T01:50:11.254Z</lastmod>
+    <data>
+        <display>
+        <title>Http Client Adapter-Maxwell介绍</title>
+        <pubTime>2016-12-21T14:19:02.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-007-module-on_definition/</loc>
+    <lastmod>2018-04-04T01:50:11.253Z</lastmod>
+    <data>
+        <display>
+        <title>on_definition编译期规范函数定义</title>
+        <pubTime>2016-04-04T15:25:08.000Z</pubTime>
+        
+        <tag>macro</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-006-decode-CSV/</loc>
+    <lastmod>2018-04-04T01:50:11.249Z</lastmod>
+    <data>
+        <display>
+        <title>Elixir decode&encode CSV 例子</title>
+        <pubTime>2016-04-03T17:31:45.000Z</pubTime>
+        
+        <tag>csv</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-009-behaviour-gen_server/</loc>
+    <lastmod>2018-04-04T01:50:11.249Z</lastmod>
+    <data>
+        <display>
+        <title>使用behaviour来规范模块对外接口</title>
+        <pubTime>2016-04-06T15:20:54.000Z</pubTime>
+        
+        <tag>GenServer</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-003-mix-archives/</loc>
+    <lastmod>2018-04-04T01:50:11.248Z</lastmod>
+    <data>
+        <display>
+        <title>mix archives build/install完整例子</title>
+        <pubTime>2016-03-07T15:40:00.000Z</pubTime>
+        
+        <tag>mix</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-004-change-config-by-system-env/</loc>
+    <lastmod>2018-04-04T01:50:11.248Z</lastmod>
+    <data>
+        <display>
+        <title>通过系统环境变量灵活管理Config</title>
+        <pubTime>2016-03-14T13:18:04.000Z</pubTime>
+        
+        <tag>mix</tag>
+         
+        <tag>config</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-008-module-apply-function/</loc>
+    <lastmod>2018-04-04T01:50:11.247Z</lastmod>
+    <data>
+        <display>
+        <title>NestedModule的动态函数调用方式</title>
+        <pubTime>2016-04-05T15:59:29.000Z</pubTime>
+        
+        <tag>module</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-005-see-data-detail-by-i-helper/</loc>
+    <lastmod>2018-04-04T01:50:11.247Z</lastmod>
+    <data>
+        <display>
+        <title>iex中查看指定数据详细信息ihelper</title>
+        <pubTime>2016-04-02T04:41:57.000Z</pubTime>
+        
+        <tag>iex</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-002-auto-connect-nodes/</loc>
+    <lastmod>2018-04-04T01:50:11.246Z</lastmod>
+    <data>
+        <display>
+        <title>节点启动后自动连接其它配置节点</title>
+        <pubTime>2016-03-01T16:02:44.000Z</pubTime>
+        
+        <tag>node</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/elixir-001-make-lifelog-by-tty/</loc>
+    <lastmod>2018-04-04T01:50:11.245Z</lastmod>
+    <data>
+        <display>
+        <title>使用tty终端做一个简单的日记记录</title>
+        <pubTime>2016-02-29T14:52:38.000Z</pubTime>
+        
+        <tag>tty</tag>
+         
+        <tag>io</tag>
+         
+         
+           
+             
+              <breadCrumb title="Elixir" url="https://127.0.0.1:4000/categories/Elixir/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/erlang-001-mnesia-upgrade-md/</loc>
+    <lastmod>2018-04-04T01:50:11.244Z</lastmod>
+    <data>
+        <display>
+        <title>Mnesia Cluster Table 在线增字段</title>
+        <pubTime>2016-09-30T16:30:15.000Z</pubTime>
+        
+        <tag>mnesia</tag>
+         
+         
+           
+             
+              <breadCrumb title="Erlang" url="https://127.0.0.1:4000/categories/Erlang/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/PlayIoFormat/</loc>
+    <lastmod>2018-04-03T09:24:22.979Z</lastmod>
+    <data>
+        <display>
+        <title>玩转io:format</title>
+        <pubTime>2018-04-03T06:32:28.000Z</pubTime>
+        
+        <tag>erlang</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://127.0.0.1:4000/ErlangInstall/</loc>
+    <lastmod>2018-04-03T01:55:23.214Z</lastmod>
     <data>
         <display>
         <title>Erlang/OTP安装指南</title>
@@ -21,7 +282,7 @@
 
     
   <url>
-    <loc>https://tried.cc/Iterm2TmuxIntegration/</loc>
+    <loc>https://127.0.0.1:4000/Iterm2TmuxIntegration/</loc>
     <lastmod>2018-01-14T06:25:40.599Z</lastmod>
     <data>
         <display>
@@ -33,7 +294,7 @@
          
            
              
-              <breadCrumb title="OSX" url="https://tried.cc/categories/OSX/"/>
+              <breadCrumb title="OSX" url="https://127.0.0.1:4000/categories/OSX/"/>
           
         </display>
     </data>
@@ -42,7 +303,7 @@
     
     
   <url>
-    <loc>https://tried.cc/ContorlpanelChangeNetwork/</loc>
+    <loc>https://127.0.0.1:4000/ContorlpanelChangeNetwork/</loc>
     <lastmod>2018-01-03T01:23:33.770Z</lastmod>
     <data>
         <display>
@@ -54,7 +315,7 @@
          
            
              
-              <breadCrumb title="OSX" url="https://tried.cc/categories/OSX/"/>
+              <breadCrumb title="OSX" url="https://127.0.0.1:4000/categories/OSX/"/>
           
         </display>
     </data>
