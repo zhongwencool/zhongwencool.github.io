@@ -1,4 +1,4 @@
-https://127.0.0.1:4000/PlayIoFormat/
+https://127.0.0.1:4000/PlayWithIoFormat/
 https://127.0.0.1:4000/ErlangInstall/
 https://127.0.0.1:4000/ContorlpanelChangeNetwork/
 https://127.0.0.1:4000/Iterm2TmuxIntegration/

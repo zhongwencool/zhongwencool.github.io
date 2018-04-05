@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://127.0.0.1:4000/PlayWithIoFormat/</loc>
+    
+    <lastmod>2018-04-05T04:15:28.356Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://127.0.0.1:4000/elixir-010-get_in-put_in/</loc>
     
     <lastmod>2018-04-04T01:50:11.255Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://127.0.0.1:4000/elixir-008-module-apply-function/</loc>
+    <loc>https://127.0.0.1:4000/elixir-005-see-data-detail-by-i-helper/</loc>
     
     <lastmod>2018-04-04T01:50:11.247Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://127.0.0.1:4000/elixir-005-see-data-detail-by-i-helper/</loc>
+    <loc>https://127.0.0.1:4000/elixir-008-module-apply-function/</loc>
     
     <lastmod>2018-04-04T01:50:11.247Z</lastmod>
     
@@ -82,13 +89,6 @@
     <loc>https://127.0.0.1:4000/erlang-001-mnesia-upgrade-md/</loc>
     
     <lastmod>2018-04-04T01:50:11.244Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://127.0.0.1:4000/PlayIoFormat/</loc>
-    
-    <lastmod>2018-04-03T09:24:22.979Z</lastmod>
     
   </url>
   

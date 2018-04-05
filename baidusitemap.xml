@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>https://127.0.0.1:4000/PlayWithIoFormat/</loc>
+    <lastmod>2018-04-05T04:15:28.356Z</lastmod>
+    <data>
+        <display>
+        <title>格式化输出io:format的奇技淫巧</title>
+        <pubTime>2018-04-03T10:32:28.000Z</pubTime>
+        
+        <tag>erlang</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://127.0.0.1:4000/elixir-010-get_in-put_in/</loc>
     <lastmod>2018-04-04T01:50:11.255Z</lastmod>
     <data>
@@ -146,14 +163,14 @@
 
     
   <url>
-    <loc>https://127.0.0.1:4000/elixir-008-module-apply-function/</loc>
+    <loc>https://127.0.0.1:4000/elixir-005-see-data-detail-by-i-helper/</loc>
     <lastmod>2018-04-04T01:50:11.247Z</lastmod>
     <data>
         <display>
-        <title>NestedModule的动态函数调用方式</title>
-        <pubTime>2016-04-05T15:59:29.000Z</pubTime>
+        <title>iex中查看指定数据详细信息ihelper</title>
+        <pubTime>2016-04-02T04:41:57.000Z</pubTime>
         
-        <tag>module</tag>
+        <tag>iex</tag>
          
          
            
@@ -166,14 +183,14 @@
 
     
   <url>
-    <loc>https://127.0.0.1:4000/elixir-005-see-data-detail-by-i-helper/</loc>
+    <loc>https://127.0.0.1:4000/elixir-008-module-apply-function/</loc>
     <lastmod>2018-04-04T01:50:11.247Z</lastmod>
     <data>
         <display>
-        <title>iex中查看指定数据详细信息ihelper</title>
-        <pubTime>2016-04-02T04:41:57.000Z</pubTime>
+        <title>NestedModule的动态函数调用方式</title>
+        <pubTime>2016-04-05T15:59:29.000Z</pubTime>
         
-        <tag>iex</tag>
+        <tag>module</tag>
          
          
            
@@ -242,23 +259,6 @@
              
               <breadCrumb title="Erlang" url="https://127.0.0.1:4000/categories/Erlang/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://127.0.0.1:4000/PlayIoFormat/</loc>
-    <lastmod>2018-04-03T09:24:22.979Z</lastmod>
-    <data>
-        <display>
-        <title>玩转io:format</title>
-        <pubTime>2018-04-03T06:32:28.000Z</pubTime>
-        
-        <tag>erlang</tag>
-         
-         
-           
         </display>
     </data>
     </url>
