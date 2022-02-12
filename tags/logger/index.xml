@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>logger on</title><link>https://zhongwencool.github.io/tags/logger/</link><description>Recent content in logger on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://zhongwencool.github.io/tags/logger/index.xml" rel="self" type="application/rss+xml"/><item><title>Erlang Logger设计</title><link>https://zhongwencool.github.io/notes/logger-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhongwencool.github.io/notes/logger-design/</guid><description> 日志在每个应用中都是至关重要， 是排查问题的得力助手。打印日志看起来是一件非常简单的事性。本人写Erlang第一个程序就是HelloWorld就是输出到标准输出（控制台）的日志， 在测试开发环境，使用io:format/2来调试的做法都不会带来性能问题。但是在生产环境下，必须要有日志做持久化，并把有效的信息（时间戳，调用栈，出错行数等）都保留下来。
-从磁盘中读
-TODO：- [发消息与读ETS间的对比速度] 每个进程极退TPS要发多少的消息。
-structure logger 性能测试</description></item></channel></rss>
