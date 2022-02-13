@@ -6,4 +6,9 @@
 II.Git工作区/暂存区/版本库 工作区(work space)：就是你可以直接查看和编辑的文件目录。 暂存区(index)：是单个大型二进制文件(.git/index)，它描述了当前分支上所有的文件的sha1校验/时间戳/文件名。它并不是一个别一个类似工作区的副本。 版本库(repository)：它隐藏于*.git/objects*下，包涵了每一个文件(本地和远程)的所有版本。 所以：不要将上图中表示的4个磁盘视为repo文件的单独副本。
 从上图的流程可以看出，撤消无非就是分成四大类：
 撤消工作区改动。 撤消暂存区改动。 撤消本地版本库改动。 撤消远程版本库改动。 III.</description></item><item><title>Linux负载</title><link>https://zhongwencool.github.io/notes/load_average/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhongwencool.github.io/notes/load_average/</guid><description>通过top或uptime都可以查看到操作系统的CPU的1分钟/5分钟/15分钟的负载情况。
-1 2 uptime 22:08:52 up 171 days, 12:03, 1 user, load average: 0.00, 0.01, 0.05 CPU load average的平均值是如何被计算出来的？</description></item></channel></rss>
+1 2 uptime 22:08:52 up 171 days, 12:03, 1 user, load average: 0.00, 0.01, 0.05 CPU load average的平均值是如何被计算出来的？</description></item><item><title>卡片笔记写作法</title><link>https://zhongwencool.github.io/notes/%E5%8D%A1%E7%89%87%E7%AC%94%E8%AE%B0%E5%86%99%E4%BD%9C%E6%B3%95/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhongwencool.github.io/notes/%E5%8D%A1%E7%89%87%E7%AC%94%E8%AE%B0%E5%86%99%E4%BD%9C%E6%B3%95/</guid><description>为什么提出一个 [好问题]这么困难？ 好问题背后是前人没有想过的角度，是一个洞见。产生洞见实际是一个不断反复，不断迭代的过程。
+写作的困难在于，我们的大脑是一个自下而上的系统，但是用传统自上而下的笔记方法来分类，很难帮助大脑进行复杂的思考和写作。 大脑没有预设笔记是用来做什么分类的。但是笔记分类时，会把他固化为一个角度。无法使用多个角度来分析他。这是笔记不好找，且无法激发灵感的矛盾点。
+卡片笔记盒子，我们不擅长于管理零星的启发。以至于有些人认为碎片华阅读，会让人变得浅薄，缺乏思考。但是碎片化输入本身并不是一个问题，最直观的例子就是：大多数人的母语都是依靠碎片化输入慢慢习得的。而不是靠系统学习语法。问题在于我们缺乏管理和融合碎片化信息的手段。
+每张卡片只写一个关键点，表达一个意思。如果需要进一步的思考，再在后面链接新的卡片。
+我们的某个想法可能转瞬即逝，但是在卡片盒子里的思考永远不会忘记。思考的成果是可以不断累积的。用的卡片盒子越久，里面盛开的想法就越多。我们思考结果的质量就也越高。同时因为里面信息彼此之间的差异极大在，所以很多之前完全无法的想法。可能突然就产生了链接，变成了意想不到的奇思妙想。
+金融领域的复利效应在卡片笔记法中也成立。每次记录的卡片都可能推动下一次的思考。卡片越多，就越容易产生新的想法和思考。卢曼教授出版了58本学术著作，数百篇论文，积累了9万张卡片。但他平均到每天的需要写的卡片只有6张。</description></item><item><title>读书笔记</title><link>https://zhongwencool.github.io/notes/books/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zhongwencool.github.io/notes/books/</guid><description> 卡片笔记写作法 如何通过卡片的高效收集，整理以及内化信息，从号产生高质量的洞见。是自己开始使用obsidian和flomo来实践卡片笔记的起始源头。</description></item></channel></rss>
