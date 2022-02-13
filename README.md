@@ -1,6 +1,6 @@
-# Quartz
+# 札记
 Host your own second brain and digital garden for free.
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+> 玉不琢，不成器；人不学，不知道。
 
-🔗 Get Started: https://quartz.jzhao.xyz/
+🔗  https://zhongwencool.github.io

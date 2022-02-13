@@ -47,15 +47,12 @@ Linux内核中，每个可调度的进程在CPU上每次调度都有一个固定
 
 全局的Load Average计算涉及到如何高效（分布式，异步）统计指标，过程非常复杂。如果想了解，可以查看`kernel/sched/loadavg.c`.
 
->/*
->\* kernel/sched/loadavg.c
->\* This file contains the magic bits required to compute the global loadavg
->\*  figure. Its a silly number but people think its important. We go through
->\*  great pains to make it work on big machines and tickless kernels.
->\*/
 >
-
-
+> kernel/sched/loadavg.c 
+> This file contains the magic bits required to compute the global loadavg
+>  figure. Its a silly number but people think its important. We go through
+>  great pains to make it work on big machines and tickless kernels.
+>
 
 大概可以理解为每隔一段时间就会计算一次Load Average，且在计算的过程中不会发生中断（切换）。但是CPU为4核，Load Average为4时，只是近似可以理解为还有1个进程还在排队。平均负载的计算是一个非常复杂的过程，无法做到非常精确。
 
