@@ -136,7 +136,7 @@ PR 提交后，维护者会对它进行逐行的审查(review)，大家可以共
 
 1. 首先 Fork [本项目](https://github.com/zhongwencool/zhongwencool.github.io)，把它变成你自己GitHub下的项目。如果你没有设置好 Git，可[参照 GitHub 指引](https://help.github.com/articles/set-up-git/)。
 
-   ![fork](writes/images/git-fork.png)
+   ![fork](notes/images/git-fork.png)
 
 2. 成功后可在自己 GitHub 账户下看到 notes 项目。将项目用命令行 clone 到本地后创建新分支。
 
@@ -160,7 +160,7 @@ Resolving deltas: 100% (676/676), done.
 > git checkout -b learn/first-pr-add-myname
 Switched to a new branch 'learn/first-pr-add-myname'
 ```
-3. 然后用文本编辑器打开 `writes/github-pull-request.md` 这个文件，在末尾加上你的名字。
+3. 然后用文本编辑器打开 `notes/github-pull-request.md` 这个文件，在末尾加上你的名字。
 
    ```markdown
    [某文](https://github.com/zhongwencool)

@@ -11,7 +11,7 @@ tags:
 
 ### II.Git工作区/暂存区/版本库
 
-![git-work](/writes/images/git-work.jpg)
+![git-work](/notes/images/git-work.jpg)
 
 - 工作区(work space)：就是你可以直接查看和编辑的文件目录。
 -  暂存区(index)：是单个大型二进制文件(*.git/index*)，它描述了当前分支上所有的文件的sha1校验/时间戳/文件名。它并不是一个别一个类似工作区的副本。
@@ -37,7 +37,7 @@ git branch -f Branch <SHA>
 - **HEAD~**是**HEAD~1**的简写，它指HEAD的上一个commit，**HEAD~2**指HEAD的上一个commit的上一个commit。以此类推。
 - **HEAD^**是**HEAD^1**的简写，它指HEAD的上一个commit，但是如果当前commit是由两个commit合并而成时，父commit就有了2个commit，所以区别是**HEAD^1**指父commit中的第一个commit，**HEAD^2**则指父commit的第二个commit,如果区分它们谁是第一/二，可以使用*git log* 看出来。
 
-![head](/writes/images/git-graph.svg)
+![head](/notes/images/git-graph.svg)
 
 还想了解HEAD,Branch更多的内容。推荐玩一下游戏:[LearnGitBranching](https://learngitbranching.js.org/)，通关后，你将对它们有一个非常直观深刻的认识。
 

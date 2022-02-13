@@ -1,4 +1,4 @@
-baseURL = "https://zhongwencool.github.io/"
+baseURL = "https://zhongwencool.github.io"
 languageCode = "zh-cn"
 googleAnalytics = ""
 pygmentsUseClasses = true
