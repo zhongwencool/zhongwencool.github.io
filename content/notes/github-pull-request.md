@@ -1,7 +1,7 @@
 ---
 title: GitHub Pull Request 入门
 subtitle: 小老弟，怎么回事？年纪轻轻想混 GitHub 圈！
-tags: 
+tags:
 - git
 ---
 
@@ -33,7 +33,7 @@ tags:
 例如：
 
 ```shell
-nodes/atom_improvements 
+nodes/atom_improvements
 scheuduler/dirty_scheuduler_collapse
 kernel/clean-history-shell
 ```
@@ -273,3 +273,4 @@ $ git push origin master
 [某文](https://github.com/zhongwencool)
 [Nightinghost](https://github.com/Nightinghost)
 [casenoone](https://github.com/casenoone)
+[Attiybom](https://github.com/Attiybom)
